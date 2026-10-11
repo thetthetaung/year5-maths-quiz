@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics - Year 5 Practice (Htet Aung Khant)</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tool-hint {
+            background: #fffbe3;
+            border: 1px solid #fde047;
+            color: #854d0e;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .question-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background: #eff6ff;
+            border-color: var(--primary-color);
+        }
+
+        .option-btn.correct {
+            background: #d1fae5 !important;
+            border-color: var(--success-color) !important;
+            color: #065f46;
+        }
+
+        .option-btn.incorrect {
+            background: #fee2e2 !important;
+            border-color: var(--error-color) !important;
+            color: #991b1b;
+        }
+
+        .explanation-box {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success-color);
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: none;
+            color: #166534;
+        }
+
+        .next-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: none;
+        }
+
+        .result-screen {
+            text-align: center;
+            display: none;
+        }
+
+        .result-screen h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">⬅️ Back to Menu</a>
+            <h1>Year 5 Mathematics Test Prep</h1>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-box">
+            <div id="question-tag" class="badge">Topic</div>
+            <div id="tool-hint" class="tool-hint" style="display: none;"></div>
+            <div id="question-title" class="question-title"></div>
+            <div id="options-grid" class="options-grid"></div>
+            <div id="explanation-box" class="explanation-box"></div>
+            <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question ➡️</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="result-screen">
+            <h2>Awesome Job, Htet Aung Khant! 🎉</h2>
+            <p id="score-text" style="font-size: 18px; color: #475569; margin-bottom: 25px;"></p>
+            <a href="index.html" style="text-decoration: none;">
+                <button class="next-btn" style="display: block;">Back to Main Menu</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Questions generated from Worksheets (Unit 4, 7, 8, 9)
+        const mathQuestions = [
+            {
+                tag: "Unit 8: Probability",
+                hint: "💡 Tool Hint: Think about likelihood words (Impossible, Unlikely, Even Chance, Likely, Certain).",
+                title: "1. Cards numbered 1 to 10 are placed in a hat. Bella picks the number 12. What is the likelihood?",
+                options: ["Impossible", "Unlikely", "Likely", "Certain"],
+                ans: 0,
+                exp: "Impossible! The cards are only numbered from 1 to 10, so picking a 12 cannot happen."
+            },
+            {
+                tag: "Unit 8: Probability",
+                hint: "💡 Tool Hint: Even numbers from 1 to 10 are 2, 4, 6, 8, 10 (5 out of 10).",
+                title: "2. Bella picks an even number from cards 1 to 10. What is the likelihood?",
+                options: ["Impossible", "Even Chance", "Certain", "Unlikely"],
+                ans: 1,
+                exp: "Even Chance! Exactly half of the numbers (5/10) are even."
+            },
+            {
+                tag: "Unit 7: Fractions & Simplification",
+                hint: "💡 Tool Hint: Divide both top (numerator) and bottom (denominator) by 4.",
+                title: "3. Write 12/16 in its simplest form.",
+                options: ["1/2", "3/4", "6/8", "2/3"],
+                ans: 1,
+                exp: "12 ÷ 4 = 3, and 16 ÷ 4 = 4. So 12/16 simplifies to 3/4."
+            },
+            {
+                tag: "Unit 7: Fractions & Percentages",
+                hint: "💡 Tool Hint: 20% means 20/100. Simplify it by dividing by 20.",
+                title: "4. Which fraction is equal to 20%?",
+                options: ["1/20", "1/5", "3/15", "Both 1/5 and 3/15"],
+                ans: 3,
+                exp: "20% = 20/100 = 1/5. Also 3/15 = 1/5! So both are correct."
+            },
+            {
+                tag: "Unit 7: Improper Fractions",
+                hint: "💡 Tool Hint: Multiply the whole number by denominator and add numerator (3 × 5 + 2).",
+                title: "5. Convert 3 2/5 (mixed number) to an improper fraction.",
+                options: ["15/5", "17/5", "32/5", "6/5"],
+                ans: 1,
+                exp: "(3 × 5) + 2 = 17. So 3 2/5 = 17/5."
+            },
+            {
+                tag: "Unit 4: Data Handling (Mode & Median)",
+                hint: "💡 Tool Hint: Mode is the MOST frequent number. Median is the MIDDLE number after sorting.",
+                title: "6. Find the mode and median of: 301, 303, 303, 303, 304, 305, 306, 306, 316",
+                options: [
+                    "Mode: 303, Median: 304",
+                    "Mode: 306, Median: 303",
+                    "Mode: 303, Median: 306",
+                    "Mode: 304, Median: 304"
+                ],
+                ans: 0,
+                exp: "303 appears 3 times (Mode = 303). The middle (5th) number is 304 (Median = 304)."
+            },
+            {
+                tag: "Unit 9: Adding Fractions",
+                hint: "💡 Tool Hint: Make denominators the same! For 5/12 + 1/6, convert 1/6 into /12.",
+                title: "7. Calculate: 5/12 + 1/6 = ?",
+                options: ["6/18", "7/12", "6/12", "2/3"],
+                ans: 1,
+                exp: "1/6 = 2/12. Then 5/12 + 2/12 = 7/12."
+            },
+            {
+                tag: "Unit 7: Decimals & Ordering",
+                hint: "💡 Tool Hint: Convert percentages and fractions to decimals first to compare.",
+                title: "8. Order from smallest to largest: 34%, 0.4, 3/4, 43%, 0.3",
+                options: [
+                    "0.3, 34%, 0.4, 43%, 3/4",
+                    "34%, 0.3, 0.4, 43%, 3/4",
+                    "0.3, 0.4, 34%, 43%, 3/4",
+                    "3/4, 43%, 0.4, 34%, 0.3"
+                ],
+                ans: 0,
+                exp: "In decimals: 0.3, 34% (0.34), 0.4, 43% (0.43), 3/4 (0.75)."
+            }
+        ];
+
+        let currentIndex = 0;
+        let score = 0;
+
+        const quizBox = document.getElementById("quiz-box");
+        const resultScreen = document.getElementById("result-screen");
+        const questionTag = document.getElementById("question-tag");
+        const toolHint = document.getElementById("tool-hint");
+        const questionTitle = document.getElementById("question-title");
+        const optionsGrid = document.getElementById("options-grid");
+        const explanationBox = document.getElementById("explanation-box");
+        const nextBtn = document.getElementById("next-btn");
+        const progressFill = document.getElementById("progress-fill");
+        const scoreText = document.getElementById("score-text");
+
+        function loadQuestion() {
+            explanationBox.style.display = "none";
+            nextBtn.style.display = "none";
+
+            const q = mathQuestions[currentIndex];
+            questionTag.innerText = q.tag;
+
+            if (q.hint) {
+                toolHint.innerText = q.hint;
+                toolHint.style.display = "flex";
+            } else {
+                toolHint.style.display = "none";
+            }
+
+            questionTitle.innerText = q.title;
+            optionsGrid.innerHTML = "";
+
+            progressFill.style.width = `${((currentIndex) / mathQuestions.length) * 100}%`;
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement("button");
+                btn.classList.add("option-btn");
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(idx, btn, q.ans, q.exp);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIdx, selectedBtn, correctIdx, exp) {
+            const allBtns = optionsGrid.getElementsByTagName("button");
+            for (let b of allBtns) {
+                b.disabled = true;
+            }
+
+            if (selectedIdx === correctIdx) {
+                selectedBtn.classList.add("correct");
+                score++;
+            } else {
+                selectedBtn.classList.add("incorrect");
+                allBtns[correctIdx].classList.add("correct");
+            }
+
+            explanationBox.innerText = "💡 Explanation: " + exp;
+            explanationBox.style.display = "block";
+            nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < mathQuestions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            progressFill.style.width = "100%";
+            quizBox.style.display = "none";
+            resultScreen.style.display = "block";
+            scoreText.innerText = `You scored ${score} out of ${mathQuestions.length}! Keep practicing!`;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
