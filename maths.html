@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics - Year 5 Exam Practice (Htet Aung Khant)</title>
+    <title>Mathematics Practice - Htet Aung Khant</title>
     <style>
         :root {
             --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --success-color: #10b981;
-            --error-color: #ef4444;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #1e293b;
@@ -29,7 +26,7 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 650px;
             background: var(--card-bg);
             padding: 30px;
             border-radius: 16px;
@@ -40,7 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .back-link {
@@ -51,168 +48,53 @@
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--primary-color);
-            margin: 0;
+            margin: 0 0 5px 0;
+            text-align: center;
         }
 
-        .progress-bar {
-            height: 8px;
-            width: 100%;
-            background: #e2e8f0;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            overflow: hidden;
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 25px;
         }
 
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .badge-container {
+        .category-list {
             display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .category-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .category-card:hover {
+            background: #eff6ff;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
         .badge {
-            display: inline-block;
-            background: #dbeafe;
-            color: #1e40af;
             font-size: 12px;
-            font-weight: bold;
             padding: 4px 10px;
             border-radius: 6px;
-        }
-
-        .badge.type-badge {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .tool-hint {
-            background: #fffbe3;
-            border: 1px solid #fde047;
-            color: #854d0e;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-
-        .question-title {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 18px;
-            line-height: 1.5;
-        }
-
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .option-btn {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .option-btn:hover:not(:disabled) {
-            background: #eff6ff;
-            border-color: var(--primary-color);
-        }
-
-        .option-btn.correct {
-            background: #d1fae5 !important;
-            border-color: var(--success-color) !important;
-            color: #065f46;
-        }
-
-        .option-btn.incorrect {
-            background: #fee2e2 !important;
-            border-color: var(--error-color) !important;
-            color: #991b1b;
-        }
-
-        /* Short answer / Fill in the blank box */
-        .text-input-box {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .text-input-box input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .text-input-box input:focus {
-            border-color: var(--primary-color);
-        }
-
-        .submit-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .explanation-box {
-            background: #f0fdf4;
-            border-left: 4px solid var(--success-color);
-            padding: 12px 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            display: none;
-            color: #166534;
-        }
-
-        .next-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            display: none;
-        }
-
-        .result-screen {
-            text-align: center;
-            display: none;
-        }
-
-        .result-screen h2 {
-            color: var(--primary-color);
-            font-size: 24px;
+            background: #dbeafe;
+            color: #1e40af;
         }
     </style>
 </head>
@@ -220,100 +102,34 @@
 
     <div class="container">
         <div class="header">
-            <a href="index.html" class="back-link">⬅️ Back to Menu</a>
-            <h1>Year 5 Mathematics Test Prep</h1>
+            <a href="index.html" class="back-link">⬅️ Back to Main Menu</a>
         </div>
+        <h1>📐 Mathematics Practice Portal</h1>
+        <div class="subtitle">Cambridge Primary Year 5 (Units 1 to 9)[cite: 17]</div>
 
-        <div class="progress-bar">
-            <div id="progress-fill" class="progress-fill"></div>
-        </div>
-
-        <!-- Quiz Container -->
-        <div id="quiz-box">
-            <div class="badge-container">
-                <span id="unit-tag" class="badge">Unit Tag</span>
-                <span id="type-tag" class="badge type-badge">Question Type</span>
-            </div>
-            
-            <div id="tool-hint" class="tool-hint" style="display: none;"></div>
-            <div id="question-title" class="question-title"></div>
-
-            <!-- Multiple Choice & True/False Container -->
-            <div id="options-grid" class="options-grid"></div>
-
-            <!-- Short Answer / Fill in Blanks Container -->
-            <div id="input-container" class="text-input-box" style="display: none;">
-                <input type="text" id="user-answer-input" placeholder="Type your answer here (e.g. 3/4 or 30 cm)...">
-                <button class="submit-btn" onclick="checkShortAnswer()">Submit Answer</button>
-            </div>
-
-            <div id="explanation-box" class="explanation-box"></div>
-            <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question ➡️</button>
-        </div>
-
-        <!-- Result Screen -->
-        <div id="result-screen" class="result-screen">
-            <h2>Awesome Job, Htet Aung Khant! 🎉</h2>
-            <p id="score-text" style="font-size: 18px; color: #475569; margin-bottom: 25px;"></p>
-            <a href="index.html" style="text-decoration: none;">
-                <button class="next-btn" style="display: block;">Back to Main Menu</button>
+        <div class="category-list">
+            <a href="math-mcq.html" class="category-card">
+                <span>I. Multiple Choice Questions</span>
+                <span class="badge">10 Marks[cite: 17]</span>
+            </a>
+            <a href="math-tf.html" class="category-card">
+                <span>II. True / False Statements</span>
+                <span class="badge">Practice</span>
+            </a>
+            <a href="math-fill.html" class="category-card">
+                <span>III. Fill in the Blanks & Missing Values</span>
+                <span class="badge">Practice</span>
+            </a>
+            <a href="math-short.html" class="category-card">
+                <span>IV. Short-Answer Questions</span>
+                <span class="badge">12 Marks[cite: 17]</span>
+            </a>
+            <a href="math-prob.html" class="category-card">
+                <span>V. Geometric Interpretations & Problem Solving</span>
+                <span class="badge">18 Marks[cite: 17]</span>
             </a>
         </div>
     </div>
 
-    <script>
-        // Questions covering all Question Types (Multiple Choice, True/False, Short Answer, Problem Solving)
-        const mathQuestions = [
-            // I. Multiple Choice
-            {
-                unit: "Unit 8: Probability",
-                type: "I. Multiple Choice",
-                hint: "💡 Tool Hint: Count how many cards match the rule out of 10 total cards.",
-                qType: "mcq",
-                title: "Cards 1 to 10 are in a hat. Bella picks a card. What is the likelihood of picking the number 7?",
-                options: ["Impossible", "Unlikely (1/10)", "Even Chance", "Certain"],
-                ans: 1,
-                exp: "Unlikely! Only 1 card out of 10 is the number 7 (1/10 chance)."
-            },
-            {
-                unit: "Unit 7: Fractions",
-                type: "I. Multiple Choice",
-                hint: "💡 Tool Hint: Divide both numerator and denominator by their common factor 4.",
-                qType: "mcq",
-                title: "Write 12/16 in its simplest form.",
-                options: ["1/2", "3/4", "6/8", "2/3"],
-                ans: 1,
-                exp: "12 ÷ 4 = 3, 16 ÷ 4 = 4. So 12/16 simplifies to 3/4."
-            },
-
-            // II. True / False
-            {
-                unit: "Unit 7: Fractions & Percentages",
-                type: "II. True / False",
-                hint: "💡 Tool Hint: Convert 3/5 to a percentage by multiplying by 100%. (3 × 20 = 60%)",
-                qType: "mcq",
-                title: "True or False: 3/5 is equal to 35%.",
-                options: ["True", "False (It is equal to 60%)"],
-                ans: 1,
-                exp: "False! 3/5 = 60/100 = 60%, not 35%."
-            },
-            {
-                unit: "Unit 8: Probability",
-                type: "II. True / False",
-                hint: "💡 Tool Hint: Flipping a coin has 2 outcomes: heads or tails.",
-                qType: "mcq",
-                title: "True or False: There is an even chance (50%) of flipping a head on a coin.",
-                options: ["True", "False"],
-                ans: 0,
-                exp: "True! Heads or Tails means 1 out of 2 = 50% = Even chance."
-            },
-
-            // III. Fill in the Blanks / Short Answer
-            {
-                unit: "Unit 7: Equivalent Fractions",
-                type: "III. Short Answer / Fill in Blanks",
-                hint: "💡 Tool Hint: 6 out of 10 = 6/10. Multiply by 10 to get percentage.",
-                qType: "short",
-                title: "Complete: 6 out of 10 is equivalent to ____ %.",
-                acceptableAnswers: ["60%", "60"],
-                exp: "6 out of 10 = 6/10 = 60/100
+</body>
+</html>
