@@ -3,96 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myanmar Social Studies Test</title>
+    <title>ရခိုင်ကမ်းရိုးတန်းဒေသ - လူမှုရေးနှင့်ပထဝီဝင် လေ့လာရန်</title>
     <style>
         body {
-            font-family: Pyidaungsu, Myanmar Text, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
+            font-family: 'Pyidaungsu', 'Myanmar Text', sans-serif;
+            background-color: #f4f7f6;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 800px;
-            margin: auto;
-            background: #fff;
+            margin: 0 auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .header-table {
-            width: 100%;
-            border-bottom: 2px solid #333;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
         }
-        .header-table td {
-            vertical-align: top;
+        .section {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: #fafbfc;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
         }
         h2 {
-            text-align: center;
-            margin-bottom: 5px;
+            color: #2980b9;
+            font-size: 1.2em;
+            margin-top: 0;
         }
-        .section-title {
+        .question {
+            margin-bottom: 12px;
             font-weight: bold;
-            margin-top: 20px;
         }
-        .question-row {
-            display: flex;
-            justify-content: space-between;
+        .options {
+            list-style-type: none;
+            padding: 0;
             margin-bottom: 10px;
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 5px;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #0066cc;
+        .options li {
+            margin: 8px 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .options li:hover {
+            background: #e1f5fe;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #219653;
+        }
+        .answer-key {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8f8f5;
+            border: 1px solid #2ecc71;
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: #27ae60;
+            display: none;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- ထိပ်ပိုင်း ခေါင်းစဉ်နှင့် အချက်အလက် -->
-    <table class="header-table">
-        <tr>
-            <td>
-                <strong>Myanmar Social Studies</strong><br>
-                <ul>
-                    <li>အခန်း (၁) - ရခိုင်ကမ်းမြောင်ဒေသ[cite: 36, 102]</li>
-                    <li>အခန်း (၂) - အလယ်ပိုင်းချိုင့်ဝှမ်းဒေသ[cite: 36, 102]</li>
-                    <li>အခန်း (၄) - ကုန်းဘောင်ခေတ်[cite: 36, 102]</li>
-                </ul>
-            </td>
-            <td style="text-align: right;">
-                <div style="text-align: left; display: inline-block;">
-                    <div class="question-row"><span>၁။ မှန် / မှား</span> &nbsp;&nbsp;&nbsp;&nbsp; <span>၅ မှတ်</span>[cite: 102]</div>
-                    <div class="question-row"><span>၂။ အဖြေမှန်ရွေး</span> &nbsp;&nbsp;&nbsp; <span>၅ မှတ်</span>[cite: 102]</div>
-                    <div class="question-row"><span>၃။ မေးခွန်းတို</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>၁၀ မှတ်</span>[cite: 102]</div>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <h1>ရခိုင်ကမ်းရိုးတန်းဒေသ လေ့ကျင့်ခန်းများ</h1>
 
-    <!-- မေးခွန်းလေ့ကျင့်ခန်း နမူနာများ -->
-    <h3>စမေးခွန်းလေ့ကျင့်ခန်းများ</h3>
-    
-    <div class="section-title">၁။ မှန် / မှား ဖြေဆိုပါ (၅ မှတ်)[cite: 102]</div>
-    <p>(က) ရခိုင်ကမ်းမြောင်ဒေသ၏ မြောက်ပိုင်းတွင် သက်နုတွန့်ခေါက်တောင်တန်းများ ရှိသည်။ ( &nbsp; &nbsp; )[cite: 39]</p>
-    <p>(ခ) ရွှေဘိုမြို့ကို ကုန်းဘောင်မင်းဆက်တည်ထောင်ချိန်မှစ၍ အမည် ၅ မျိုးဖြင့် ခေါ်ဝေါ်ခဲ့သည်။ ( &nbsp; &nbsp; )[cite: 52]</p>
+    <!-- အပိုင်း ၁ -->
+    <div class="section">
+        <h2>၁။ အမှား / အမှန် ရွေးချယ်ရန်</h2>
+        
+        <div class="question">၁။ ရခိုင်ကမ်းရိုးတန်းဒေသသည် ရခိုင်ရိုးမနှင့် ဘင်္ဂလားပင်လယ်အော်အကြားတွင် တည်ရှိသည်။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>[ ] အမှန်</li>
+            <li>[ ] အမှား</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: အမှန်</div>
 
-    <div class="section-title">၂။ အဖြေမှန်ရွေးပါ (၅ မှတ်)[cite: 102]</div>
-    <p>၁။ ရခိုင်ကမ်းမြောင်ဒေသတွင် ပါဝင်သော ထင်ရှားသည့်ကျွန်းမှာ အောက်ပါတို့အနက် မည်သည်ပါသနည်း။[cite: 39]</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp; (က) ရမ်းဗြဲကျွန်း &nbsp;&nbsp;&nbsp;&nbsp; (ခ) ဟိုင်းကြီးကျွန်း &nbsp;&nbsp;&nbsp;&nbsp; (ဂ) ကိုကိုးကျွန်း</p>
+        <div style="margin-top: 20px;" class="question">၂။ ရခိုင်ကမ်းရိုးတန်းဒေသ၏ အဓိက စီးပွားရေးလုပ်ငန်းများမှာ စိုက်ပျိုးရေးနှင့် ရေလုပ်ငန်းတို့ ဖြစ်ကြသည်။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>[ ] အမှန်</li>
+            <li>[ ] အမှား</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: အမှန်</div>
+    </div>
 
-    <div class="section-title">၃။ မေးခွန်းတို ဖြေဆိုပါ (၁၀ မှတ်)[cite: 102]</div>
-    <p>၁။ စစ်တွေမြို့နယ်တွင် နေထိုင်သူများသည် မည်သည့်လုပ်ငန်းများ လုပ်ကိုင်ကြသနည်း။ အဘယ်ကြောင့်နည်း။[cite: 42]</p>
-    <p>၂။ ကုန်းဘောင်ခေတ် အုပ်ချုပ်ရေးစနစ်ကို ရှင်းပြပါ။[cite: 81]</p>
+    <!-- အပိုင်း ၂ -->
+    <div class="section">
+        <h2>၂။ အဖြေမှန်ရွေး (Multiple Choice)</h2>
+        
+        <div class="question">၁။ ရခိုင်ကမ်းရိုးတန်းဒေသရှိ ထင်ရှားသောမြို့များ မပါဝင်သည့် အုပ်စုကို ရွေးပါ။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) စစ်တွေမြို့</li>
+            <li>(ခ) ပုဏ္ဏားကျွန်းမြို့</li>
+            <li>(ဂ) မြောက်ဦးမြို့</li>
+            <li>(ဃ) မန္တလေးမြို့</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ဃ) မန္တလေးမြို့</div>
 
-    <br>
-    <a href="index.html" class="back-link">&larr; ပင်မစာမျက်နှာသို့ ပြန်ရန်</a>
+        <div style="margin-top: 20px;" class="question">၂။ ရခိုင်ကမ်းရိုးတန်းဒေသသည် မည်သည့်ရာသီဥတု အမျိုးအစား ရှိသနည်း။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) သစ်တောရာသီဥတု</li>
+            <li>(ခ) မုတ်သုံရာသီဥတု</li>
+            <li>(ဂ) သဲကန္တာရရာသီဥတု</li>
+            <li>(ဃ) တောင်ပေါ်ရာသီဥတု</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ခ) မုတ်သုံရာသီဥတု</div>
+    </div>
+
+    <!-- အပိုင်း ၃ -->
+    <div class="section">
+        <h2>၃။ မေးခွန်းတို ဖြေဆိုရန်</h2>
+        
+        <div class="question">၁။ ရခိုင်ကမ်းရိုးတန်းဒေသ၏ တည်နေရာကို ဖော်ပြပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: ရခိုင်ကမ်းရိုးတန်းဒေသသည် ရခိုင်ရိုးမနှင့် ဘင်္ဂလားပင်လယ်အော်အကြားတွင် တည်ရှိပြီး မြန်မာနိုင်ငံနှင့် ဘင်္ဂလားဒေ့ရှ်နိုင်ငံအကြား နယ်နိမိတ်အဖြစ် တည်ရှိသည်။</div>
+
+        <div style="margin-top: 20px;" class="question">၂။ စစ်တွေမြို့ရှိ ရေလုပ်ငန်းအမျိုးအစားများကို ဖော်ပြပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: ကမ်းနီး၊ ကမ်းဝေး ရေလုပ်ငန်း၊ ငါးနှင့်ပုစွန်မွေးမြူရေး လုပ်ငန်းများ ဖြစ်သည်။</div>
+    </div>
+
 </div>
+
+<script>
+    function toggleAnswer(element) {
+        let answerKey = element.nextElementSibling;
+        if (answerKey && answerKey.classList.contains('answer-key')) {
+            answerKey.style.display = answerKey.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+
+    function showTextAnswer(button) {
+        let answerKey = button.nextElementSibling;
+        if (answerKey && answerKey.classList.contains('answer-key')) {
+            answerKey.style.display = answerKey.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+</script>
 
 </body>
 </html>
