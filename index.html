@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambridge Primary Year 5 - Exam Practice Portal</title>
+    <title>Dreamland International School - Year 5 Portal</title>
     <style>
         :root {
             --primary-color: #4f46e5;
-            --primary-hover: #4338ca;
-            --success-color: #10b981;
-            --error-color: #ef4444;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #1e293b;
@@ -39,7 +36,7 @@
         h1 {
             text-align: center;
             color: var(--primary-color);
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 5px;
         }
 
@@ -47,303 +44,106 @@
             text-align: center;
             color: #64748b;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* Subject Selection Menu */
-        .subject-menu {
+        .love-banner {
+            background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+            border: 1px dashed var(--primary-color);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #3730a3;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .subject-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
         }
 
-        .subject-btn {
-            background: #f1f5f9;
+        .subject-card {
+            background: #f8fafc;
             border: 2px solid #e2e8f0;
-            padding: 14px 20px;
-            border-radius: 10px;
-            text-align: left;
-            font-size: 16px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 17px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .subject-btn:hover {
-            background: #e0e7ff;
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        /* Quiz Section */
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .back-btn {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            margin-bottom: 15px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .back-btn:hover {
-            text-decoration: underline;
-        }
-
-        .question-tag {
-            font-size: 12px;
-            text-transform: uppercase;
-            background: #e0e7ff;
-            color: var(--primary-color);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .question {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .option-btn {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 15px;
-            cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .option-btn:hover:not(:disabled) {
-            background: #f1f5f9;
+        .subject-card:hover {
+            background: #e0e7ff;
             border-color: var(--primary-color);
-        }
-
-        .option-btn.correct {
-            background: #d1fae5 !important;
-            border-color: var(--success-color) !important;
-            color: #065f46;
-        }
-
-        .option-btn.incorrect {
-            background: #fee2e2 !important;
-            border-color: var(--error-color) !important;
-            color: #991b1b;
-        }
-
-        .explanation {
-            background: #eff6ff;
-            border-left: 4px solid var(--primary-color);
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .action-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-        }
-
-        .action-btn:hover {
-            background: var(--primary-hover);
-        }
-
-        .result-box {
-            text-align: center;
-            display: none;
-        }
-
-        .result-box h2 {
-            font-size: 26px;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            transform: translateY(-2px);
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #cbd5e1;
+            color: #334155;
+            font-weight: normal;
+        }
+
+        .tag.urgent {
+            background: #fecaca;
+            color: #991b1b;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Cambridge Primary Year 5</h1>
-        <div class="subtitle">Multi-Subject Practice Portal</div>
-
-        <!-- Home Menu: Subject Selection -->
-        <div id="home-menu" class="section active">
-            <p style="text-align: center; color: #475569; margin-bottom: 20px;">လေ့ကျင့်လိုသော ဘာသာရပ်ကို ရွေးချယ်ပါ -</p>
-            <div class="subject-menu">
-                <button class="subject-btn" onclick="startQuiz('math')">📐 Mathematics (Units 1-9) <span>➡️</span></button>
-                <button class="subject-btn" onclick="startQuiz('science')">🧪 Science (Units 1-3) <span>➡️</span></button>
-                <button class="subject-btn" onclick="startQuiz('humanities')">🌍 Humanities (History & Geography) <span>➡️</span></button>
-                <button class="subject-btn" onclick="startQuiz('myanmarSocial')">🏛️ Myanmar Social Studies <span>➡️</span></button>
-                <button class="subject-btn" onclick="startQuiz('myanmar')">🇲🇲 မြန်မာစာ (သင်ခန်းစာ ၁ မှ ၁၉) <span>➡️</span></button>
-            </div>
+        <h1>Dreamland International School</h1>
+        <div class="subtitle">Cambridge Primary Year 5 Exam Practice Portal</div>
+        
+        <div class="love-banner">
+            ❤️ ဖေဖေ မေမေ ချစ်တဲ့သားလေး Htet Aung Khant အတွက် လေ့ကျင့်ရန် ဖန်တီးထားသည် ❤️
         </div>
 
-        <!-- Quiz Screen -->
-        <div id="quiz-screen" class="section">
-            <button class="back-btn" onclick="goHome()">⬅️ Back to Subjects</button>
-            <div id="question-tag" class="question-tag">Format</div>
-            <div id="question-text" class="question">Question goes here...</div>
-            <div id="options-container" class="options"></div>
-            <div id="explanation-box" class="explanation"></div>
-            <button id="next-btn" class="action-btn" style="display: none;" onclick="nextQuestion()">Next Question</button>
-        </div>
-
-        <!-- Result Screen -->
-        <div id="result-screen" class="section result-box">
-            <h2>Quiz Completed! 🎉</h2>
-            <p id="score-text" style="font-size: 18px; margin-bottom: 20px;"></p>
-            <button class="action-btn" onclick="goHome()">Back to Subject Menu</button>
+        <div class="subject-grid">
+            <a href="maths.html" class="subject-card">
+                <span>📐 Mathematics</span>
+                <span class="tag urgent">Monday Test</span>
+            </a>
+            <a href="science.html" class="subject-card">
+                <span>🧪 Science</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="history.html" class="subject-card">
+                <span>📜 History (Oxford)</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="humanity.html" class="subject-card">
+                <span>🌍 Geography (Oxford) / Humanity</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="Myanmar.html" class="subject-card">
+                <span>🇲🇲 မြန်မာစာ</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="socials.html" class="subject-card">
+                <span>🏛️ Myanmar Social Studies</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="ict.html" class="subject-card">
+                <span>💻 ICT</span>
+                <span class="tag">Coming Soon</span>
+            </a>
         </div>
     </div>
 
-    <script>
-        // All Subjects Questions Database
-        const db = {
-            math: [
-                { tag: "Multiple Choice", q: "What is the value of 7 in the number 47,823?", options: ["70", "700", "7,000", "70,000"], ans: 2, exp: "The digit 7 is in the thousands place (7,000)." },
-                { tag: "Multiple Choice", q: "What is 3/4 converted to a decimal?", options: ["0.25", "0.50", "0.75", "0.80"], ans: 2, exp: "3 divided by 4 equals 0.75." },
-                { tag: "Problem Solving", q: "What is the perimeter of a regular pentagon with side lengths of 6 cm?", options: ["25 cm", "30 cm", "36 cm", "40 cm"], ans: 1, exp: "A pentagon has 5 sides: 5 × 6 cm = 30 cm." }
-            ],
-            science: [
-                { tag: "True / False", q: "Living things are made up of cells.", options: ["True", "False"], ans: 0, exp: "True. All living organisms are composed of cells." },
-                { tag: "Multiple Choice", q: "Which organ is responsible for pumping blood through the human body?", options: ["Lungs", "Heart", "Brain", "Stomach"], ans: 1, exp: "The heart pumps blood to all parts of the body." },
-                { tag: "Fill in the blank", q: "Water boils at standard atmospheric pressure at ____ °C.", options: ["0", "50", "100", "212"], ans: 2, exp: "Water boils at 100°C at sea level." }
-            ],
-            humanities: [
-                { tag: "Multiple Choice", q: "What is the study of past events called?", options: ["Geography", "History", "Science", "Math"], ans: 1, exp: "History is the study of the past." },
-                { tag: "True / False", q: "An atlas is a collection of maps.", options: ["True", "False"], ans: 0, exp: "True, an atlas contains geographical maps." }
-            ],
-            myanmarSocial: [
-                { tag: "မှန် / မှား", q: "မြန်မာနိုင်ငံတွင် ရာသီဥတု ၃ ခုရှိသည်။", options: ["မှန်", "မှား"], ans: 0, exp: "မြန်မာနိုင်ငံတွင် ပူ၊ မိုး၊ ဆောင်း ရာသီ ၃ ခုရှိသည်။" },
-                { tag: "အဖြေမှန်ရွေးရန်", q: "မြန်မာနိုင်ငံ၏ မြို့တော်မှာ မည်သည့်မြို့ဖြစ်သနည်း။", options: ["ရန်ကုန်", "မန္တလေး", "နေပြည်တော်", "ပုဂံ"], ans: 2, exp: "မြန်မာနိုင်ငံ၏ မြို့တော်မှာ နေပြည်တော် ဖြစ်သည်။" }
-            ],
-            myanmar: [
-                { tag: "သတ်ပုံမှန်ရွေး", q: "'ကျေးဇူးတင်ပါတယ်' တွင် အမှန်ဆုံး သတ်ပုံကို ရွေးပါ။", options: ["ကျေးဇူးတင်ပါတယ်", "ကျေးဇူးတင်ပါသည်", "ကျေးဇူးတင်ပတယ်", "ကျေးဇူးတင်ပါတယ်"], ans: 1, exp: "စာေးစနစ်အရ 'ကျေးဇူးတင်ပါသည်' သည် ပိုမိုစံနှုန်းကျသည်။" },
-                { tag: "ဆက်စပ်", q: "'ခေါင်းဆောင်' နှင့် အနီးစပ်ဆုံး တူညီသော အနက်ကို ဖော်ပြပါ။", options: ["နောက်လိုက်", "ဦးဆောင်သူ", "လုပ်ဖော်ကိုင်ဖက်", "ဧည့်သည်"], ans: 1, exp: "ခေါင်းဆောင်ဆိုသည်မှာ ဦးဆောင်သူကို ဆိုလိုသည်။" }
-            ]
-        };
-
-        let currentSubject = '';
-        let questionsList = [];
-        let currentIndex = 0;
-        let score = 0;
-
-        const homeMenu = document.getElementById("home-menu");
-        const quizScreen = document.getElementById("quiz-screen");
-        const resultScreen = document.getElementById("result-screen");
-        
-        const questionTag = document.getElementById("question-tag");
-        const questionText = document.getElementById("question-text");
-        const optionsContainer = document.getElementById("options-container");
-        const explanationBox = document.getElementById("explanation-box");
-        const nextBtn = document.getElementById("next-btn");
-        const scoreText = document.getElementById("score-text");
-
-        function startQuiz(subjectKey) {
-            currentSubject = subjectKey;
-            questionsList = db[subjectKey];
-            currentIndex = 0;
-            score = 0;
-
-            homeMenu.classList.remove("active");
-            resultScreen.classList.remove("active");
-            quizScreen.classList.add("active");
-            loadQuestion();
-        }
-
-        function loadQuestion() {
-            explanationBox.style.display = "none";
-            nextBtn.style.display = "none";
-
-            const qData = questionsList[currentIndex];
-            questionTag.innerText = qData.tag;
-            questionText.innerText = qData.q;
-            optionsContainer.innerHTML = "";
-
-            qData.options.forEach((opt, idx) => {
-                const btn = document.createElement("button");
-                btn.classList.add("option-btn");
-                btn.innerText = opt;
-                btn.onclick = () => selectOpt(idx, btn, qData.ans, qData.exp);
-                optionsContainer.appendChild(btn);
-            });
-        }
-
-        function selectOpt(selectedIdx, selectedBtn, correctIdx, explanation) {
-            const allBtns = optionsContainer.getElementsByTagName("button");
-            for (let b of allBtns) {
-                b.disabled = true;
-            }
-
-            if (selectedIdx === correctIdx) {
-                selectedBtn.classList.add("correct");
-                score++;
-            } else {
-                selectedBtn.classList.add("incorrect");
-                allBtns[correctIdx].classList.add("correct");
-            }
-
-            explanationBox.innerText = "💡 " + explanation;
-            explanationBox.style.display = "block";
-            nextBtn.style.display = "block";
-        }
-
-        function nextQuestion() {
-            currentIndex++;
-            if (currentIndex < questionsList.length) {
-                loadQuestion();
-            } else {
-                showResult();
-            }
-        }
-
-        function showResult() {
-            quizScreen.classList.remove("active");
-            resultScreen.classList.add("active");
-            scoreText.innerText = `You scored ${score} out of ${questionsList.length} correctly!`;
-        }
-
-        function goHome() {
-            quizScreen.classList.remove("active");
-            resultScreen.classList.remove("active");
-            homeMenu.classList.add("active");
-        }
-    </script>
 </body>
 </html>
