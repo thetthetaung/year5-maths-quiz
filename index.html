@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Practice - Htet Aung Khant</title>
+    <title>Dreamland International School - Year 5 Portal</title>
     <style>
         :root {
-            --primary-color: #2563eb;
+            --primary-color: #4f46e5;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #1e293b;
@@ -29,52 +29,71 @@
             max-width: 650px;
             background: var(--card-bg);
             padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 14px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
 
         h1 {
-            font-size: 22px;
             color: var(--primary-color);
-            margin: 0 0 5px 0;
-            text-align: center;
+            font-size: 24px;
+            margin-bottom: 5px;
         }
 
         .subtitle {
-            text-align: center;
             color: #64748b;
             font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Family Photo Styling */
+        .family-photo-container {
+            margin: 0 auto 20px auto;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .family-photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .family-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .love-banner {
+            background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+            border: 1px dashed var(--primary-color);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #3730a3;
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
-        .category-list {
-            display: flex;
-            flex-direction: column;
+        .subject-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 12px;
+            text-align: left;
         }
 
-        .category-card {
+        .subject-card {
             background: #f8fafc;
             border: 2px solid #e2e8f0;
             padding: 16px 20px;
             border-radius: 12px;
             text-decoration: none;
             color: var(--text-color);
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
@@ -82,51 +101,72 @@
             transition: all 0.2s ease;
         }
 
-        .category-card:hover {
-            background: #eff6ff;
+        .subject-card:hover {
+            background: #e0e7ff;
             border-color: var(--primary-color);
             color: var(--primary-color);
             transform: translateY(-2px);
         }
 
-        .badge {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background: #dbeafe;
-            color: #1e40af;
+        .tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #cbd5e1;
+            color: #334155;
+            font-weight: normal;
+        }
+
+        .tag.urgent {
+            background: #fecaca;
+            color: #991b1b;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header">
-            <a href="index.html" class="back-link">⬅️ Back to Main Menu</a>
+        <!-- Family Photo Display -->
+        <div class="family-photo-container">
+            <img src="family.jpg" alt="Our Happy Family">
         </div>
-        <h1>📐 Mathematics Practice Portal</h1>
-        <div class="subtitle">Cambridge Primary Year 5 (Units 1 to 9)[cite: 17]</div>
 
-        <div class="category-list">
-            <a href="math-mcq.html" class="category-card">
-                <span>I. Multiple Choice Questions</span>
-                <span class="badge">10 Marks[cite: 17]</span>
+        <h1>Dreamland International School</h1>
+        <div class="subtitle">Cambridge Primary Year 5 Exam Practice Portal</div>
+        
+        <div class="love-banner">
+            ❤️ ဖေဖေ မေမေ ချစ်တဲ့သားလေး Htet Aung Khant အတွက် လေ့ကျင့်ရန် ဖန်တီးထားသည် ❤️
+        </div>
+
+        <div class="subject-grid">
+            <a href="maths.html" class="subject-card">
+                <span>📐 Mathematics</span>
+                <span class="tag urgent">Monday Test</span>
             </a>
-            <a href="math-tf.html" class="category-card">
-                <span>II. True / False Statements</span>
-                <span class="badge">Practice</span>
+            <a href="science.html" class="subject-card">
+                <span>🧪 Science</span>
+                <span class="tag">Coming Soon</span>
             </a>
-            <a href="math-fill.html" class="category-card">
-                <span>III. Fill in the Blanks & Missing Values</span>
-                <span class="badge">Practice</span>
+            <a href="history.html" class="subject-card">
+                <span>📜 History (Oxford)</span>
+                <span class="tag">Coming Soon</span>
             </a>
-            <a href="math-short.html" class="category-card">
-                <span>IV. Short-Answer Questions</span>
-                <span class="badge">12 Marks[cite: 17]</span>
+            <a href="humanity.html" class="subject-card">
+                <span>🌍 Geography (Oxford) / Humanity</span>
+                <span class="tag">Coming Soon</span>
             </a>
-            <a href="math-prob.html" class="category-card">
-                <span>V. Geometric Interpretations & Problem Solving</span>
-                <span class="badge">18 Marks[cite: 17]</span>
+            <a href="Myanmar.html" class="subject-card">
+                <span>🇲🇲 မြန်မာစာ</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="socials.html" class="subject-card">
+                <span>🏛️ Myanmar Social Studies</span>
+                <span class="tag">Coming Soon</span>
+            </a>
+            <a href="ict.html" class="subject-card">
+                <span>💻 ICT</span>
+                <span class="tag">Coming Soon</span>
             </a>
         </div>
     </div>
