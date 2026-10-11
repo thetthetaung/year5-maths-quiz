@@ -1,87 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math MCQ - Htet Aung Khant</title>
+    <title>Math - Multiple Choice Questions</title>
     <style>
-        :root { --primary: #2563eb; --bg: #f8fafc; --card: #fff; --text: #1e293b; --success: #10b981; --error: #ef4444; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { width: 100%; max-width: 650px; background: var(--card); padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .back { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 14px; }
-        h2 { color: var(--primary); font-size: 20px; margin: 15px 0 5px 0; }
-        .hint { background: #fffbe3; border: 1px solid #fde047; color: #854d0e; padding: 10px; border-radius: 8px; font-size: 13px; margin-bottom: 15px; font-weight: 500; }
-        .question { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
-        .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-        .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: left; font-size: 15px; cursor: pointer; transition: 0.2s; }
-        .opt-btn:hover:not(:disabled) { background: #eff6ff; border-color: var(--primary); }
-        .opt-btn.correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; }
-        .opt-btn.incorrect { background: #fee2e2 !important; border-color: var(--error) !important; color: #991b1b; }
-        .explanation { background: #f0fdf4; border-left: 4px solid var(--success); padding: 12px; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; color: #166534; }
-        .next-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; display: none; }
+        body { font-family: 'Pyidaungsu', sans-serif; padding: 20px; background: #f4f7f6; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .question { font-weight: bold; margin-bottom: 10px; }
+        .options li { list-style: none; margin: 5px 0; padding: 8px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; }
+        .options li:hover { background: #d4e6f1; }
+        .answer-key { margin-top: 10px; padding: 8px; background: #eafaf1; color: #27ae60; border-radius: 5px; display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="maths.html" class="back">⬅️ Back to Math Menu</a>
-        <h2>I. Multiple Choice Questions</h2>
-        <div id="quiz-area">
-            <div id="hint" class="hint" style="display:none;"></div>
-            <div id="question" class="question"></div>
-            <div id="options" class="options"></div>
-            <div id="explanation" class="explanation"></div>
-            <button id="next-btn" class="next-btn" onclick="nextQ()">Next Question ➡️</button>
-        </div>
-        <div id="result-area" style="display:none; text-align:center;">
-            <h3>Quiz Completed! 🎉</h3>
-            <p id="score" style="font-size: 18px; margin-bottom: 20px;"></p>
-            <a href="maths.html"><button class="next-btn" style="display:block;">Back to Math Menu</button></a>
-        </div>
+<div class="container">
+    <h1>အဖြေမှန်ရွေးချယ်ရန် (Multiple Choice)</h1>
+
+    <div style="margin-bottom: 25px;">
+        <div class="question">၁။ ၁ မှ ၁၀ ထိ ကတ်ပြားများထဲမှ ကျပန်းတစ်စន្លោងနှုတ်ရာတွင် "စုံနံပါတ် (Even number)" ကျရန် ဖြစ်နိုင်ခြေ (Likelihood) က မည်သို့ရှိသနည်း။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) Impossible (မဖြစ်နိုင်ပါ)</li>
+            <li>(ခ) Even chance (၅၀% ဖြစ်နိုင်ခြေရှိသည်)</li>
+            <li>(ဂ) Certain (သေချာပေါက်ဖြစ်သည်)</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ခ) Even chance (စုံနံပါတ် ၅ လုံးပါဝင်သောကြောင့်)</div>
     </div>
-    <script>
-        const questions = [
-            { hint: "💡 Probability Tool Hint: Cards 1 to 10. Number 7 appears only once.", q: "Cards numbered 1 to 10 are placed in a hat. Bella takes a card. What is the likelihood that she picks the number 7?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 1, exp: "Unlikely! Only 1 card out of 10 is the number 7." },
-            { hint: "💡 Probability Tool Hint: Even numbers from 1 to 10 are 2, 4, 6, 8, 10 (5 numbers out of 10).", q: "Bella picks a card from 1 to 10. What is the likelihood that she picks an even number?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 2, exp: "Even Chance! Exactly 5 out of 10 numbers are even (50%)." },
-            { hint: "💡 Fractions Tool Hint: Divide both numerator and denominator by 4.", q: "Write 12/16 in its simplest form.", options: ["1/2", "3/4", "6/8", "2/3"], ans: 1, exp: "12 ÷ 4 = 3, and 16 ÷ 4 = 4. So it is 3/4." },
-            { hint: "💡 Percentages Tool Hint: 20% = 20/100. Simplify it.", q: "Which fractions are equal to 20%?", options: ["1/20", "1/5", "3/15", "Both 1/5 and 3/15"], ans: 3, exp: "20% = 1/5 and 3/15 also simplifies to 1/5." },
-            { hint: "💡 Data Handling Tool Hint: Mode is the most frequently occurring value.", q: "What is the mode of these T-shirt prices: $5, $11, $8, $5, $5, $8, $7?", options: ["$5", "$8", "$7", "$11"], ans: 0, exp: "$5 appears three times, which is more than any other price." },
-            { hint: "💡 Data Handling Tool Hint: Median is the middle number when arranged in order.", q: "What is the median of these T-shirt prices: $5, $11, $8, $5, $5, $8, $7?", options: ["$5", "$7", "$8", "$11"], ans: 1, exp: "Sorted order: $5, $5, $5, $7, $8, $8, $11. The middle number (4th) is $7." },
-            { hint: "💡 Probability Tool Hint: Cards 1 to 10. Numbers less than 3 are 1 and 2 (2 cards).", q: "Bella picks a card from 1 to 10. What is the likelihood of picking a number less than 3?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 1, exp: "Unlikely! Only 2 numbers (1, 2) are less than 3." },
-            { hint: "💡 Place Value Tool Hint: 47,823 - digit 7 is in thousands place.", q: "What is the value of 7 in the number 47,823?", options: ["70", "700", "7,000", "70,000"], ans: 2, exp: "The digit 7 is in the thousands column, so its value is 7,000." },
-            { hint: "💡 Percentages Tool Hint: 75% means 75 out of 100.", q: "1075% of a number is 36. What is the fraction equivalent of 75%?", options: ["1/4", "1/2", "3/4", "4/5"], ans: 2, exp: "75% = 75/100 = 3/4 in simplest form." },
-            { hint: "💡 Fractions Tool Hint: Add numerators when denominators are the same.", q: "Calculate: 2/7 + 3/7 = ?", options: ["5/14", "5/7", "6/7", "1/7"], ans: 1, exp: "Keep the denominator 7 and add top numbers: 2 + 3 = 5 (5/7)." }
-        ];
-        let idx = 0, score = 0;
-        function load() {
-            document.getElementById("explanation").style.display = "none";
-            document.getElementById("next-btn").style.display = "none";
-            let q = questions[idx];
-            if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
-            else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
-            let optHTML = "";
-            q.options.forEach((o, i) => { optHTML += `<button class="opt-btn" onclick="check(${i}, this)">${o}</button>`; });
-            document.getElementById("options").innerHTML = optHTML;
-        }
-        function check(sel, btn) {
-            let q = questions[idx], btns = document.getElementsByClassName("opt-btn");
-            for(let b of btns) b.disabled = true;
-            if(sel === q.ans) { btn.classList.add("correct"); score++; }
-            else { btn.classList.add("incorrect"); btns[q.ans].classList.add("correct"); }
-            let exp = document.getElementById("explanation");
-            exp.innerText = "💡 Explanation: " + q.exp; exp.style.display = "block";
-            document.getElementById("next-btn").style.display = "block";
-        }
-        function nextQ() {
-            idx++;
-            if(idx < questions.length) load();
-            else {
-                document.getElementById("quiz-area").style.display = "none";
-                document.getElementById("result-area").style.display = "block";
-                document.getElementById("score").innerText = `You scored ${score} out of ${questions.length}!`;
-            }
-        }
-        load();
-    </script>
+
+    <div style="margin-bottom: 25px;">
+        <div class="question">၂။ ဂဏန်းအုပ်စု 301, 303, 303, 303, 304 ၏ **Mode** မှာ အဘယ်နည်း။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) 301</li>
+            <li>(ခ) 303</li>
+            <li>(ဂ) 304</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ခ) 303 (အများဆုံး ထပ်ခါထပ်ခါ ပါလာသောကြောင့်)</div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <div class="question">၃။ အပိုင်းကိန်း $\frac{12}{16}$ ကို အရိုးရှင်းဆုံးပုံစံ (Simplest form) ဖော်ပြပါက မည်မျှဖြစ်သနည်း။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) $\frac{1}{2}$</li>
+            <li>(ခ) $\frac{3}{4}$</li>
+            <li>(ဂ) $\frac{2}{3}$</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ခ) $\frac{3}{4}$ (အပေါ်နဲ့အောက်ကို ၄ နဲ့စား၍ ရသည်)</div>
+    </div>
+</div>
+<script>
+    function toggleAnswer(el) {
+        let key = el.nextElementSibling;
+        key.style.display = key.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
 </body>
 </html>
