@@ -3,258 +3,817 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>မြန်မာစာ လေ့ကျင့်ခန်းများ (ကျောင်းသင်ရိုးအခြေခံ)</title>
+    <title>မြန်မာစာ စာမေးပွဲ လေ့ကျင့်ခန်း (သင်ခန်းစာ ၁ မှ ၁၉)</title>
     <style>
         body {
             font-family: 'Pyidaungsu', 'Myanmar Text', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-color: #f4f7f6;
             color: #333;
             margin: 0;
             padding: 20px;
-            min-height: 100vh;
         }
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: #ffffff;
             padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
             color: #2c3e50;
             margin-bottom: 5px;
-            font-size: 2em;
         }
         .subtitle {
             text-align: center;
             color: #7f8c8d;
             margin-bottom: 35px;
-            font-size: 1.05em;
         }
         .section {
             margin-bottom: 35px;
             padding: 22px;
-            background: #fff;
-            border-left: 6px solid #e74c3c;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: #fafbfc;
+            border-left: 5px solid #27ae60;
+            border-radius: 6px;
         }
         h2 {
-            color: #c0392b;
+            color: #27ae60;
             font-size: 1.25em;
             margin-top: 0;
-            border-bottom: 2px solid #fadbd8;
+            border-bottom: 2px solid #e8f8f5;
             padding-bottom: 8px;
         }
+        .question-box {
+            margin-bottom: 18px;
+            padding: 14px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
         .question {
-            margin-bottom: 12px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #34495e;
+            margin-bottom: 8px;
             line-height: 1.5;
         }
         .options {
             list-style-type: none;
             padding: 0;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         .options li {
-            margin: 8px 0;
-            padding: 10px 14px;
-            background: #f8f9f9;
-            border: 1px solid #e5e7e9;
-            border-radius: 6px;
+            margin: 6px 0;
+            padding: 8px 12px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: 0.2s;
         }
         .options li:hover {
-            background: #ebdef0;
-            border-color: #d7bde2;
+            background: #e8f8f5;
         }
         input[type="text"] {
             width: 100%;
-            padding: 11px;
+            padding: 10px;
             margin-top: 6px;
-            margin-bottom: 10px;
-            border: 1px solid #bdc3c7;
-            border-radius: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
             font-family: inherit;
         }
         .btn {
-            background: #e74c3c;
+            background: #27ae60;
             color: white;
             border: none;
-            padding: 9px 18px;
-            border-radius: 6px;
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.95em;
-            transition: background 0.2s;
+            font-size: 0.9em;
+            margin-top: 8px;
         }
         .btn:hover {
-            background: #c0392b;
+            background: #219653;
         }
         .answer-key {
-            margin-top: 10px;
-            padding: 10px 14px;
-            background-color: #eafaf1;
+            margin-top: 8px;
+            padding: 10px 12px;
+            background-color: #e8f8f5;
             border: 1px solid #2ecc71;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.95em;
             color: #27ae60;
             display: none;
             line-height: 1.5;
-        }
-        .reading-box {
-            background: #f4ecf7;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #8e44ad;
-            margin-bottom: 15px;
-            color: #4a235a;
-            line-height: 1.6;
-        }
-        .card-img {
-            text-align: center;
-            margin: 15px 0;
-        }
-        .card-img img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>📚 မြန်မာစာ လေ့ကျင့်ခန်းများ</h1>
-    <p class="subtitle">ကျောင်းသုံးဖတ်စာအုပ် သင်ခန်းစာများအပေါ် အခြေခံ၍ မေးခွန်းပုံစံ (၇) မျိုးဖြင့် လေ့ကျင့်ရန်</p>
+    <h1>🇲🇲 မြန်မာစာ လေ့ကျင့်ခန်းများ (Grade 5)</h1>
+    <p class="subtitle">သင်ခန်းစာ (၁) တောင်ကြီးဖဝါးအောက် မှ (၁၉) မြစ်ဧရာ အထိ</p>
 
-    <!-- ၁။ သတ်ပုံမှန်ရွေး -->
+    <!-- ၁။ သတ်ပုံအမှန်ရွေး (၁၀ ပုဒ်) -->
     <div class="section">
-        <h2>၁။ သတ်ပုံမှန် ရွေးချယ်ရန်</h2>
-        <div class="question">၁။ အောက်ပါတို့အနက် သတ်ပုံမှန်ကန်သော စကားလုံးကို ရွေးပါ။ (အခန်း ၁၃ - ဆုံးမစာ)[cite: 98, 107]</div>
-        <ul class="options" onclick="toggleAnswer(this)">
-            <li>(က) အဖေါ်အသင်း</li>
-            <li>(ခ) အဖော်အသင်း</li>
-            <li>(ဂ) အဖော်အသငျး</li>
-            <li>(ဃ) အဖေါ်အသငျး</li>
-        </ul>
-        <div class="answer-key">အဖြေမှန်: (ခ) အဖော်အသင်း</div>
+        <h2>၁။ သတ်ပုံအမှန်ရွေးချယ်ရန် (၁၀ ပုဒ်)</h2>
 
-        <div style="margin-top: 20px;" class="question">၂။ အောက်ပါတို့အနက် သတ်ပုံမှန်ကန်သော စကားလုံးကို ရွေးပါ။ (အခန်း ၃ - စွမ်းရည်ကိုယ်စီ)[cite: 98, 99]</div>
-        <ul class="options" onclick="toggleAnswer(this)">
-            <li>(က) အကျည်းနှီး</li>
-            <li>(ခ) အကျဉ်းနှီး</li>
-            <li>(ဂ) အကျည်းနီး</li>
-            <li>(ဃ) အကျည်းနှီ</li>
-        </ul>
-        <div class="answer-key">အဖြေမှန်: (က) အကျည်းနှီး (အကျိုးမရှိဘဲ၊ အလဟဿ)[cite: 99]</div>
-    </div>
+        <div class="question-box">
+            <div class="question">၁။ (က) တောင်ကြီးဖဝါးအောက် / (ခ) တောင်ကြီးဖဝါးေအာက်</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) တောင်ကြီးဖဝါးအောက်</li>
+                <li>(ခ) တောင်ကြီးဖဝါးေအာက်</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) တောင်ကြီးဖဝါးအောက်</div>
+        </div>
 
-    <!-- ၂။ ခက်ဆစ် -->
-    <div class="section">
-        <h2>၂။ ခက်ဆစ် ဖြေဆိုရန်</h2>
-        <div class="question">၁။ "ပညာရှိ" ဟူသော စကားလုံး၏ အဓိပ္ပာယ်မှာ အဘယ်နည်း။ (အခန်း ၃)[cite: 98, 99]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: ဉာဏ်ပညာ အကြားအမြင် ဗဟုသုတနှင့် ပြည့်စုံသူ[cite: 99]။</div>
+        <div class="question-box">
+            <div class="question">၂။ (က) ကြိုးစားအားထုတ် / (ခ) ကြိုးစားအားထုပ်</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) ကြိုးစားအားထုတ်</li>
+                <li>(ခ) ကြိုးစားအားထုပ်</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) ကြိုးစားအားထုတ်</div>
+        </div>
 
-        <div style="margin-top: 20px;" class="question">၂။ "မင်္ဂလာ" ဟူသော စကားလုံး၏ အဓိပ္ပာယ်မှာ အဘယ်နည်း။ (အခန်း ၁၄)[cite: 98, 108]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: တိုးတက်ကြီးပွားကြောင်းတရား၊ ကောင်းမြတ်ခြင်း၊ တင့်တယ်ခြင်း၊ ကျက်သရေရှိခြင်း[cite: 108]။</div>
-    </div>
+        <div class="question-box">
+            <div class="question">၃။ (က) စည်းလုံးညီညွတ် / (ခ) စည်းလုံးညီညွတ်​ေရး</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) စည်းလုံးညီညွတ်</li>
+                <li>(ခ) စည်းလုံးညီညွတ်​ေရး</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) စည်းလုံးညီညွတ်</div>
+        </div>
 
-    <!-- ၃(က) ဝါကျ -->
-    <div class="section">
-        <h2>၃(က) ဝါကျ တည်ဆောက်ရန်</h2>
-        <div class="question">၁။ အောက်ပါ စကားလုံးများဖြင့် ဝါကျဖွဲ့ပါ။ (ဖတ်စာအုပ်ပါ မေးခွန်း)[cite: 102]</div>
-        <p><b>(ခွမ်းအား ၊ စွမ်းဆောင် ၊ အငြင်းအခုံ)</b>[cite: 102]</p>
-        <input type="text" placeholder="ဝါကျများကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">
-            <b>ဥပမာ အဖြေများ:</b><br>
-            • ခွမ်းအား - စက်ဘီးကို ခွန်အားစိုက်ထုတ်၍ နင်းခဲ့ရသည်။<br>
-            • စွမ်းဆောင် - တာဝန်များကို ကျေပွန်စွာ စွမ်းဆောင်နိုင်ခဲ့သည်။<br>
-            • အငြင်းအခုံ - သူငယ်ချင်းနှစ်ဦး အငြင်းအခုံ မလုပ်သင့်ပါ။
+        <div class="question-box">
+            <div class="question">၄။ (က) သစ္စာရှိခြင်း / (ခ) သစ်စာရှိခြင်း</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) သစ္စာရှိခြင်း</li>
+                <li>(ခ) သစ်စာရှိခြင်း</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) သစ္စာရှိခြင်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ (က) သယံဇာတ / (ခ) သယံဇာတေ</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) သယံဇာတ</li>
+                <li>(ခ) သယံဇာတေ</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) သယံဇာတ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ (က) မြစ်ဧရာဝတီ / (ခ) မြစ်ဧရာဝတီ​ေရ</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) မြစ်ဧရာဝတီ</li>
+                <li>(ခ) မြစ်ဧရာဝတီ​ေရ</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) မြစ်ဧရာဝတီ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ (က) စိတ်ရင်းမှန်ကင်း / (ခ) စိတ်ရင်းမှန်ကင်းေရး</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) စိတ်ရင်းမှန်ကင်း</li>
+                <li>(ခ) စိတ်ရင်းမှန်ကင်းေရး</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) စိတ်ရင်းမှန်ကင်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ (က) ဥယျာဉ်ခြံမြေ / (ခ) ဥယျာဉ်ခြံ​ေမြ</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) ဥယျာဉ်ခြံမြေ</li>
+                <li>(ခ) ဥယျာဉ်ခြံ​ေမြ</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) ဥယျာဉ်ခြံမြေ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ (က) ပညာရွှေအိုး / (ခ) ပညာရွှေအိုးေရး</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) ပညာရွှေအိုး</li>
+                <li>(ခ) ပညာရွှေအိုးေရး</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) ပညာရွှေအိုး</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ (က) ကျေးဇူးသိတတ်ခြင်း / (ခ) ကျေးဇူးသိတတ်ခြင်းေရး</div>
+            <ul class="options" onclick="toggleAnswer(this)">
+                <li>(က) ကျေးဇူးသိတတ်ခြင်း</li>
+                <li>(ခ) ကျေးဇူးသိတတ်ခြင်းေရး</li>
+            </ul>
+            <div class="answer-key">အဖြေမှန်: (က) ကျေးဇူးသိတတ်ခြင်း</div>
         </div>
     </div>
 
-    <!-- ၃(ခ) ကွက်လပ် -->
+    <!-- ၂။ ခက်ဆစ် (၁၀ ပုဒ်) -->
     <div class="section">
-        <h2>၃(ခ) ကွက်လပ်ဖြည့်ရန်</h2>
-        <div class="question">၁။ "မိတ်ဆွေအပေါင်းအသင်းများကို ........ မစွန့်ပစ်သင့်ပါ။" ကွက်လပ်တွင် သင့်တော်သော စကားလုံး ဖြည့်ပါ။ (အခန်း ၁၃ - ဆုံးမစာ)[cite: 98, 107]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: "သစ္စာမဖောက်" (သို့မဟုတ်) "လွယ်လွယ်နှင့်"</div>
-    </div>
+        <h2>၂။ ခက်ဆစ် အဓိပ္ပာယ်ဖော်ပြရန် (၁၀ ပုဒ်)</h2>
 
-    <!-- ၄။ မျဉ်းသားထားသည့်စကားလုံးနှင့်အဓိပ္ပာယ်တူ -->
-    <div class="section">
-        <h2>၄။ မျဉ်းသားထားသည့် စကားလုံးနှင့် အဓိပ္ပာယ်တူ စကားလုံးရွေးရန်</h2>
-        <div class="question">၁။ "ဆင်သည် မည်သည့်အချက်က မိမိ၏ <u>အားသာချက်</u>ဟု ထင်သနည်း။" မျဉ်းသားထားသော စကားလုံး၏ အဓိပ္ပာယ်တူကို ရွေးပါ။[cite: 102]</div>
-        <ul class="options" onclick="toggleAnswer(this)">
-            <li>(က) အားနည်းချက်</li>
-            <li>(ခ) စွမ်းရည် / ထူးခြားသော အရည်အချင်း[cite: 99]</li>
-            <li>(ဂ) အခက်အခဲ[cite: 102]</li>
-            <li>(ဃ) အကျိုးကျေးဇူး[cite: 102]</li>
-        </ul>
-        <div class="answer-key">အဖြေမှန်: (ခ) စွမ်းရည် / ထူးခြားသော အရည်အချင်း[cite: 99]</div>
-    </div>
-
-    <!-- ၅(က) ကဗျာကွက်လပ် -->
-    <div class="section">
-        <h2>၅(က) ကဗျာကွက်လပ် ဖြည့်ရန်</h2>
-        <div class="question">၁။ အောက်ပါ ကဗျာစာကြောင်းများတွင် ကျန်ရှိသော ကွက်လပ်များကို ဖြည့်ပါ။ (အခန်း ၁ - တောင်ကြီး ဖဝါးအောက်)[cite: 98, 100]</div>
-        <p>"ခရီးကြမ်း ခရီးကြမ်း၊ ရှေ့သို့ တက်ကာလှမ်း။<br>
-        မမောတမ်းပင် လျှောက်ကြမယ်၊ ပန်းတိုင်အရောက်........။"[cite: 100]</p>
-        <input type="text" placeholder="ကွက်လပ်ဖြည့်ပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: "ကွယ်" (ပန်းတိုင်အရောက်ကွယ်)[cite: 100]</div>
-    </div>
-
-    <!-- ၅(ခ) ကဗျာဆိုလိုရင်း -->
-    <div class="section">
-        <h2>၅(ခ) ကဗျာဆိုလိုရင်း ဖြေဆိုရန်</h2>
-        <div class="question">၁။ "တောင်ကြီး ဖဝါးအောက်" ကဗျာ၏ အဓိက ဆိုလိုရင်းမှာ အဘယ်နည်း။ (အခန်း ၁)[cite: 98, 100]</div>
-        <input type="text" placeholder="ဆိုလိုရင်းကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: ခရီးလမ်းမည်မျှပင် ခက်ခဲကြမ်းတမ်းပါစေ ဇွဲ၊ လုံ့လ၊ ဝီရိယ စိုက်ထုတ်၍ မနားတမ်း ကြိုးစားလျှင် မည်သည့် အခက်အခဲ (တောင်ကြီး) ကိုမဆို ကျော်လွှား၍ ပန်းတိုင်သို့ ရောက်ရှိနိုင်ကြောင်း ဆိုလိုပါသည်။[cite: 100]</div>
-    </div>
-
-    <!-- ၆။ မေးခွန်းတို -->
-    <div class="section">
-        <h2>၆။ မေးခွန်းတို ဖြေဆိုရန်</h2>
-        <div class="question">၁။ ပညာရှိဇီးကွက်က ဆင်နှင့်မျောက်ကို မည်သို့စမ်းသပ်ခဲ့သနည်း။ (အခန်း ၃ - စွမ်းရည်ကိုယ်စီ)[cite: 98, 102]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: အသုံးအဖြုတ်ပေးရန်အတွက် ချောင်းကိုဖြတ်ပြီး တစ်ဖက်ကမ်းရှိ သစ်ပင်မှ သီးသီးကို ယူဆောင်ခိုင်းခြင်းဖြင့် စမ်းသပ်ခဲ့သည်[cite: 102]။</div>
-
-        <div style="margin-top: 20px;" class="question">၂။ ဇီဝဇိုးငှက်သည် ကျောက်ကမ်းပါးယံများတွင် အဘယ်ကြောင့် ခိုင်မြဲစွာ ကပ်တွယ်နိုင်သနည်း။ (အခန်း ၁၀)[cite: 98, 105]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: ခြေချောင်းများတွင် သန်မာသော ခြေသည်းကောက်များ ပါရှိသောကြောင့် ခိုင်မြဲစွာ ကပ်တွယ်နိုင်ခြင်းဖြစ်သည်[cite: 105]။</div>
-    </div>
-
-    <!-- ၇။ စာပိုဒ်ဖတ်၍မေးခွန်းဖြေ -->
-    <div class="section">
-        <h2>၇။ စာပိုဒ်ဖတ်၍ မေးခွန်းဖြေဆိုရန်</h2>
-        <div class="reading-box">
-            "မြစ်ဧရာ မြသားငယ်တဲ့ ရေယမုန်၊ ငွေလှိုင်းတွေ ဖြူစွာနဲ့ မြစ်ဧရာ နဒီကြောမှာ မျှောကြ ဒိုက်ပုံ။ ကျူဝါးရုံ တူစုံတွဲ ဖော်နှော၊ ဘုံမတီးရယ်နဲ့ ငှက်ကြီး ရွှေဝန်ပိုတို့ ဝဲလို့မျှော။" (မြစ်ဧရာ ကဗျာ)[cite: 108]
+        <div class="question-box">
+            <div class="question">၁။ "ဖဝါး" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ခြေဖဝါး / ခြေအောက်</div>
         </div>
-        <div class="question">၁။ မြစ်ဧရာ၏ ရေအိုင်/ရေပြင်တွင် မည်သည့်အရာများ မျှောပါနေသနည်း။[cite: 108]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: ဒိုက်ပုံများ မျှောပါနေကြသည်[cite: 108]။</div>
 
-        <div style="margin-top: 20px;" class="question">၂။ မြစ်ပြင်ပေါ်တွင် မည်သည့် ငှက်အမျိုးအစားများ ဝဲပျံမျှောနေကြသနည်း။[cite: 108]</div>
-        <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
-        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
-        <div class="answer-key">အဖြေမှန်: ဘုံမတီးငှက် နှင့် ငှက်ကြီး ရွှေဝန်ပို တို့ဖြစ်ကြသည်[cite: 108]။</div>
+        <div class="question-box">
+            <div class="question">၂။ "ဝီရိယ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကြိုးစားအားထုတ်မှု</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ "သစ္စာ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မှန်ကန်ဖြောင့်မတ်ခြင်း / အမှန်တရား</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ "သယံဇာတ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သဘာဝအလျောက် ဖြစ်ပေါ်နေသော အရင်းအမြစ်/ပစ္စည်းများ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ "ဧရာ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကြီးမားသော / မြင့်မြတ်သော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ "ဒေဝီ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: နတ်သမီး / မိဖုရား</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ "မင်္ဂလာ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကြီးပွားချမ်းသာကြောင်း တရား / ကောင်းမြတ်သော အရာ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ "ဥယျာဉ်" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သစ်ပင်ပန်းမန် စိုက်ပျိုးထားသော နေရာ/ခြံ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ "ဇွဲ" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မဆုတ်မနစ်သော အားထုတ်မှု/ခံနိုင်ရည်</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ "ညီညွတ်" ၏ အဓိပ္ပာယ်ကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: စည်းလုံးညီညွတ်ခြင်း / စိတ်သဘောထား တူညီခြင်း</div>
+        </div>
+    </div>
+
+    <!-- ၃။ (က) ဝါကျ စကားလုံးများဖြင့် ဝါကျဖွဲ့ရန် (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၃။ (က) အောက်ပါ စကားလုံးများဖြင့် ဝါကျဖွဲ့ပါ (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ "ကြိုးစား"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: ကျွန်တော်သည် စာမေးပွဲတွင် အမှတ်ကောင်းရရန် ကြိုးစားစာကျက်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ "ရိုးသား"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: ရိုးသားသော ကလေးကို လူအများက ချစ်ခင်ကြသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ "စည်းလုံး"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: တိုင်းရင်းသားများ စည်းလုံးပါက နိုင်ငံတော် ဖွံ့ဖြိုးတိုးတက်မည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ "ပညာ"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: ပညာသည် မပျောက်ပျက်နိုင်သော ရွှေအိုးကြီးနှင့် တူသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ "ကျေးဇူး"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: မိဘဆရာများ၏ ကျေးဇူးကို အစဉ်သိတတ်ရမည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ "မြစ်ဧရာ"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: မြစ်ဧရာဝတီသည် မြန်မာနိုင်ငံ၏ အသက်သွေးကြော ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ "သယံဇာတ"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: မြန်မာနိုင်ငံတွင် သဘာဝသယံဇာတများ ပေါများသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ "သစ္စာ"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: မိတ်ဆွေစစ်သည် အမြဲသစ္စာရှိသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ "အောင်မြင်"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: ဇွဲရှိရှိ ကြိုးစားသူသည် ဘဝတွင် အောင်မြင်မည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ "ဥယျာဉ်"</div>
+            <input type="text" placeholder="ဝါကျဖွဲ့ကြည့်ပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">ဥပမာအဖြေ: ဥယျာဉ်ထဲတွင် လှပသော ပန်းများ ပွင့်နေကြသည်။</div>
+        </div>
+    </div>
+
+    <!-- ၃။ (ခ) ကွက်လပ်ဖြည့် (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၃။ (ခ) ကွက်လပ်ဖြည့်ရန် (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ တောင်ကြီးဖဝါးအောက်၊ ရေလှိုင်း ........... အောက်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: လှေလောင်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ ကိုယ်နှုတ်နှလုံး ........... စိတ်ထားသည် မင်္ဂလာတစ်ပါး ဖြစ်သည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရိုးသားသော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ ပညာရှာ ပမာ ...........။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သူဆင်းရဲ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ စည်းလုံးခြင်းသည် ........... ကို ပေးသည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အင်အား</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ မြစ်ဧရာဝတီသည် မြန်မာတို့၏ ........... ဖြစ်သည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အသက်သွေးကြော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ မိဘဆရာတို့၏ ........... ကို အစဉ် အောက်မေ့ရမည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကျေးဇူးတရား</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ ဇွဲ၊ ဝီရိယ ရှိသူသည် ........... သို့ ရောက်ရှိမည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အောင်ပန်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ ရိုးသားခြင်း၏ တန်ဖိုးသည် ........... ထက်မက အဖိုးတန်သည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရတနာ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ သစ္စာရှိသော မိတ်ဆွေသည် ........... တန်ဖိုးရှိသည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အလွန်</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ တိုင်းပြည်၏ သယံဇာတများကို ........... ထိန်းသိမ်းရမည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ဝိုင်းဝန်း</div>
+        </div>
+    </div>
+
+    <!-- ၄။ မျဉ်းသားထားသည့်စကားလုံးနှင့် အဓိပ္ပာယ်တူစကားလုံး (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၄။ မျဉ်းသားထားသည့် စကားလုံးနှင့် အဓိပ္ပာယ်တူ စကားလုံး ရေးရန် (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ <u>ဖဝါး</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ခြေဖဝါး</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ <u>ဝီရိယ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကြိုးစားမှု</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ <u>ကျေးဇူး</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကောင်းကွက် / ပြုဖူးသော ကောင်းမှု</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ <u>ပညာ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အသိအလိမ္မာ / အတတ်ပညာ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ <u>ညီညွတ်</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: စည်းလုံး</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ <u>မိတ်ဆွေ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အပေါင်းအသင်း / သူငယ်ချင်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ <u>ဥယျာဉ်</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ပန်းခြံ / သစ်သီးခြံ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ <u>သစ္စာ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အမှန်တရား / မှန်ကန်မှု</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ <u>ဧရာ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကြီးမားသော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ <u>မင်္ဂလာ</u> (အဓိပ္ပာယ်တူစကားလုံး ရေးပါ)</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကောင်းမြတ်သော မင်္ဂလာတရား</div>
+        </div>
+    </div>
+
+    <!-- ၅။ (က) ကဗျာကွက်လပ် (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၅။ (က) ကဗျာ ကွက်လပ်ဖြည့်ရန် (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ တောင်ကြီးဖဝါးအောက်၊ ........... လှေလောင်းအောက်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရေလှိုင်း</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ ကိုယ်နှုတ်နှလုံး၊ ........... စိတ်ထား။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရိုးသားသော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ ပညာရှာ၊ ........... သူဆင်းရဲ။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ပမာ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ ညီညွတ်ဒေဝီ၊ ........... ။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အားသစ်ကူ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ မြစ်ဧရာဝတီ၊ ........... စီးဆင်းသည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အေးချမ်းစွာ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ ရိုးသားခြင်းသည်၊ ........... ရတနာ။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မြင့်မြတ်သော</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ ပညာရွှေအိုး၊ ........... ခိုးမရ။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: လူသူ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ ညီညွတ်ခြင်းအင်အား၊ ........... အောင်ပန်း။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ဆွတ်ခူးမည်</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ ကျေးဇူးတရား၊ ........... ။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သိတတ်ပါ</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ ကြိုးစားစိတ်မလျှော့၊ ........... ရမည်။</div>
+            <input type="text" placeholder="အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အောင်ပန်းဆွတ်ခူး</div>
+        </div>
+    </div>
+
+    <!-- ၅။ (ခ) ကဗျာဆိုလိုရင်း (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၅။ (ခ) ကဗျာ ဆိုလိုရင်း ဖော်ပြရန် (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ "တောင်ကြီးဖဝါးအောက်၊ ရေလှိုင်းလှေလောင်းအောက်" ကဗျာ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မည်မျှပင် ကြီးမားသော အခက်အခဲဖြစ်ပါစေ ဇွဲ၊ ဝီရိယရှိရှိ ကြိုးစားပါက ကျော်လွှားနိုင်သည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ "ရိုးသားခြင်း" ကဗျာ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ကိုယ်၊ နှုတ်၊ နှလုံး ရိုးသားစွာ နေထိုင်ခြင်းသည် မင်္ဂလာတစ်ပါးဖြစ်ပြီး လူအများ၏ လေးစားမှုကို ရရှိစေသည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ "ပညာရွှေအိုး" ကဗျာ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ပညာသည် ခိုးသူငါးပါး မယူနိုင်ဘဲ ဘဝတစ်သက်တာအတွက် အဖိုးတန်လှသော ရွှေအိုးကြီးနှင့် တူသည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ "ညီညွတ်ခြင်း" ကဗျာ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: တိုင်းရင်းသားများ စည်းလုံးညီညွတ်ပါက မည်သည့် အခက်အခဲကိုမဆို အတူတကွ ကျော်လွှားနိုင်သည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ "မြစ်ဧရာ" ကဗျာ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ဧရာဝတီမြစ်သည် မြန်မာနိုင်ငံသားများအတွက် အရေးပါလှသော သဘာဝအမွေအနှစ်ဖြစ်၍ ဝိုင်းဝန်းထိန်းသိမ်းရမည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ "ပညာရှာ ပမာသူဆင်းရဲ" ဟု အဘယ်ကြောင့် ဆိုသနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ပညာသင်ယူရာတွင် ဆင်းရဲသူကဲ့သို့ ဝီရိယရှိစွာဖြင့် အဆင်းရဲခံ၍ သင်ယူရမည်ဟု ဆိုလိုခြင်း ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ "ကျေးဇူးသိတတ်ခြင်း" ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မိဘဆရာများ၏ ကျေးဇူးကို သိတတ်ပြီး ကျေးဇူးဆပ်ခြင်းသည် သားကောင်း၊ သမီးကောင်းတို့၏ တာဝန်ဖြစ်သည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ "သစ္စာရှိခြင်း" ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မှန်ကန်ဖြောင့်မတ်သော သစ္စာတရားကို စောင့်သိရိုသေခြင်းသည် လူတော်လူကောင်းတို့၏ အင်္ဂါရပ်ဖြစ်သည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ "ဇွဲရှိခြင်း" ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အလုပ်တစ်ခုကို စတင်လုပ်ဆောင်ပါက မပြီးမချင်း ဇွဲ၊ ဝီရိယဖြင့် လုပ်ဆောင်ရမည်ဟု ဆိုလိုသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ "သယံဇာတ ထိန်းသိမ်းရေး" ၏ ဆိုလိုရင်းကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မိမိတို့ တိုင်းပြည်၏ သဘာဝသယံဇာတများကို မပြုန်းတီးရအောင် စနစ်တကျ ထိန်းသိမ်းသုံးစွဲရမည်ဟု ဆိုလိုသည်။</div>
+        </div>
+    </div>
+
+    <!-- ၆။ မေးခွန်းတို (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၆။ မေးခွန်းတိုများ ဖြေဆိုရန် (၁၀ ပုဒ်)</h2>
+
+        <div class="question-box">
+            <div class="question">၁။ "တောင်ကြီးဖဝါးအောက်" ဟု အဘယ်ကြောင့် ဆိုသနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မည်မျှပင် မြင့်မားသော တောင်ဖြစ်ပါစေ လူတို့၏ ခြေဖဝါးအောက်သို့ ရောက်အောင် တက်ရောက်နိုင်သောကြောင့် ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ ရိုးသားသော စိတ်ထားရှိသူ၏ အကျိုးကျေးဇူးကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: စိတ်ချမ်းသာခြင်း၊ လူအများ၏ ယုံကြည်ကိုးစားမှုနှင့် ချစ်ခင်လေးစားမှုကို ရရှိခြင်းတို့ ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ ပညာကို အဘယ်ကြောင့် ရွှေအိုးနှင့် နှိုင်းယှဉ်ထားသနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သူတစ်ပါး ခိုးယူ၍ မရနိုင်ဘဲ မပျောက်ပျက်နိုင်သော တန်ဖိုးရှိသည့် အရာဖြစ်သောကြောင့် ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ စည်းလုံးညီညွတ်ခြင်း၏ အဓိက အကျိုးကျေးဇူးမှာ အဘယ်နည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အခက်အခဲများကို လွယ်ကူစွာ ကျော်လွှားနိုင်ပြီး အောင်မြင်မှု အင်အားကို ရရှိစေသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ ဧရာဝတီမြစ်ကြီးကို မြန်မာတို့က အဘယ်ကြောင့် မြတ်နိုးကြသနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မြန်မာနိုင်ငံသားတို့အတွက် သောက်သုံးရေ၊ စိုက်ပျိုးရေးနှင့် သွားလာရေးတို့တွင် အဓိက အသက်သွေးကြော ဖြစ်သောကြောင့် ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ မိဘဆရာများ၏ ကျေးဇူးကို မည်သို့ ဆပ်ရမည်နည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: စာပေကို ကြိုးစားသင်ယူခြင်း၊ စကားနားထောင်ခြင်းနှင့် လုပ်ကိုင်ကျွေးမွေးခြင်းတို့ဖြင့် ဆပ်ရမည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ သစ္စာတရားကို စောင့်သိခြင်းသည် အဘယ်ကြောင့် အရေးပါသနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: လူအများ၏ မိတ်ဆွေကောင်းဖြစ်စေပြီး ယုံကြည်အားထားရသော စိတ်ထားကောင်းရှိသူ ဖြစ်စေသောကြောင့် ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ သဘာဝသယံဇာတများကို မည်သို့ ထိန်းသိမ်းသင့်သနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မပြုန်းတီးရအောင် စနစ်တကျ သုံးစွဲခြင်း၊ သစ်ပင်စိုက်ပျိုးခြင်းတို့ဖြင့် ထိန်းသိမ်းသင့်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ ဘဝတွင် အောင်မြင်မှုရရှိရန် မည်သည့် အရည်အချင်းများ လိုအပ်သနည်း။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ဇွဲ၊ ဝီရိယ၊ ပညာ၊ ရိုးသားမှုနှင့် စည်းလုံးမှုတို့ လိုအပ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ ကျောင်းသားကောင်းတစ်ယောက်တွင် ရှိရမည့် စိတ်ထားကို ရေးပါ။</div>
+            <input type="text" placeholder="သင်၏အဖြေကို ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရိုးသားခြင်း၊ ကြိုးစားခြင်း၊ ကျေးဇူးသိတတ်ခြင်းနှင့် စည်းကမ်းရှိခြင်းတို့ ဖြစ်သည်။</div>
+        </div>
+    </div>
+
+    <!-- ၇။ စာပိုဒ်ဖတ်၍ မေးခွန်းဖြေ (၁၀ ပုဒ်) -->
+    <div class="section">
+        <h2>၇။ စာပိုဒ်ဖတ်၍ မေးခွန်းဖြေဆိုရန် (၁၀ ပုဒ်)</h2>
+
+        <div style="background:#eef7f2; padding:15px; border-radius:6px; margin-bottom:20px;">
+            <p><strong>[ဖတ်ရန်စာပိုဒ်]</strong></p>
+            <p>မြန်မာနိုင်ငံသည် သဘာဝသယံဇာတ ပေါများသော နိုင်ငံတစ်နိုင်ငံ ဖြစ်သည်။ မြစ်ဧရာဝတီသည် မြန်မာနိုင်ငံ၏ အသက်သွေးကြောဖြစ်ပြီး ပြည်သူတို့အား များစွာ အကျိုးပြုလျက်ရှိသည်။ တိုင်းရင်းသားညီအစ်ကိုများသည် စည်းလုံးညီညွတ်စွာဖြင့် နိုင်ငံတော်ကို တည်ဆောက်ကြရမည်။ ပညာသည် ခိုးသူငါးပါး မယူနိုင်သော ရွှေအိုးကြီးဖြစ်သဖြင့် ငယ်စဉ်ကတည်းက ကြိုးစားသင်ယူသင့်သည်။ ရိုးသားခြင်းနှင့် သစ္စာရှိခြင်းတို့သည် လူတစ်ယောက်၏ အကောင်းဆုံး မင်္ဂလာတရားများ ဖြစ်ကြသည်။</p>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁။ မြန်မာနိုင်ငံသည် မည်သည့်အရာများ ပေါများသော နိုင်ငံဖြစ်သနည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: သဘာဝသယံဇာတ ပေါများသော နိုင်ငံဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၂။ မြန်မာနိုင်ငံ၏ အသက်သွေးကြောမှာ မည်သည့်မြစ် ဖြစ်သနည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: မြစ်ဧရာဝတီ ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၃။ တိုင်းရင်းသားများ မည်သို့ တိုင်းပြည်ကို တည်ဆောက်ကြရမည်နည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: စည်းလုံးညီညွတ်စွာဖြင့် တည်ဆောက်ကြရမည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၄။ ပညာကို မည်သည့်အရာနှင့် နှိုင်းယှဉ်ထားသနည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ခိုးသူငါးပါး မယူနိုင်သော ရွှေအိုးကြီးနှင့် နှိုင်းယှဉ်ထားသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၅။ ပညာကို မည်သည့်အရွယ်တွင် သင်ယူသင့်သနည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ငယ်စဉ်ကတည်းက ကြိုးစားသင်ယူသင့်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၆။ လူတစ်ယောက်၏ အကောင်းဆုံး မင်္ဂလာတရားနှစ်ပါးမှာ အဘယ်နည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ရိုးသားခြင်းနှင့် သစ္စာရှိခြင်းတို့ ဖြစ်ကြသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၇။ ဧရာဝတီမြစ်သည် ပြည်သူတို့အား မည်သို့ အကျိုးပြုသနည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: အသက်သွေးကြောအဖြစ် များစွာ အကျိုးပြုလျက်ရှိသည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၈။ စာပိုဒ်ပါ "သယံဇာတ" ၏ အဓိပ္ပာယ်ကို စာပိုဒ်အရ ရေးပါ။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: တိုင်းပြည်၏ သဘာဝအလျောက် ရှိသော အဖိုးတန် အရာများ။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၉။ စာပိုဒ်အရ ခိုးသူငါးပါး မယူနိုင်သော အရာမှာ အဘယ်နည်း။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+            <div class="answer-key">အဖြေမှန်: ပညာ ဖြစ်သည်။</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">၁၀။ ဒီစာပိုဒ်မှ ရရှိသော အဓိက သင်ခန်းစာကို ရေးပါ။</div>
+            <input type="text" placeholder="စာပိုဒ်ကိုကြည့်၍ ရေးပါ...">
+            <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+
+            <div class="answer-key">အဖြေမှန်: စည်းလုံးညီညွတ်စွာ၊ ရိုးသားသစ္စာရှိစွာဖြင့် ပညာကို ကြိုးစားရှာဖွေရမည်။</div>
+        </div>
     </div>
 
 </div>
