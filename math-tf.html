@@ -14,7 +14,6 @@
         .question { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
         .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
         .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: left; font-size: 15px; cursor: pointer; transition: 0.2s; }
-        .opt-btn:hover:not(:disabled) { background: #eff6ff; border-color: var(--primary); }
         .opt-btn.correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; }
         .opt-btn.incorrect { background: #fee2e2 !important; border-color: var(--error) !important; color: #991b1b; }
         .explanation { background: #f0fdf4; border-left: 4px solid var(--success); padding: 12px; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; color: #166534; }
@@ -40,8 +39,11 @@
     </div>
     <script>
         const questions = [
-            { hint: "💡 Tool Hint: Convert 3/5 to percentage (3 × 20 = 60%).", q: "True or False: 3/5 is equal to 35%.", options: ["True", "False"], ans: 1, exp: "False! 3/5 = 60/100 = 60%." },
-            { hint: "💡 Tool Hint: Flipping a coin has 2 equal sides (Heads and Tails).", q: "True or False: There is an even chance of getting heads when flipping a fair coin.", options: ["True", "False"], ans: 0, exp: "True! 1 out of 2 is 50% (even chance)." }
+            { hint: "💡 Percentage Hint: 3/5 = 60/100 = 60%.", q: "True or False: 3/5 is equal to 35%.", options: ["True", "False"], ans: 1, exp: "False! 3/5 is equal to 60%, not 35%." },
+            { hint: "💡 Percentage Hint: 7/100 = 7%.", q: "True or False: 7/100 is equal to 7%.", options: ["True", "False"], ans: 0, exp: "True! Per-cent means out of a hundred." },
+            { hint: "💡 Percentage Hint: 9/10 = 90/100 = 90%.", q: "True or False: 9/10 is equal to 9%.", options: ["True", "False"], ans: 1, exp: "False! 9/10 is equal to 90%." },
+            { hint: "💡 Probability Hint: Tossing a coin has 2 equal outcomes.", q: "True or False: There is an even chance of getting heads when flipping a fair coin.", options: ["True", "False"], ans: 0, exp: "True! Heads or tails is 1/2 (50%)." },
+            { hint: "💡 Probability Hint: Cards 1 to 10. Number 12 is impossible.", q: "True or False: Picking the number 12 from cards 1 to 10 is certain.", options: ["True", "False"], ans: 1, exp: "False! It is impossible because cards only go up to 10." }
         ];
         let idx = 0, score = 0;
         function load() {
@@ -50,7 +52,7 @@
             let q = questions[idx];
             if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
             else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = q.q;
+            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
             let optHTML = "";
             q.options.forEach((o, i) => { optHTML += `<button class="opt-btn" onclick="check(${i}, this)">${o}</button>`; });
             document.getElementById("options").innerHTML = optHTML;
