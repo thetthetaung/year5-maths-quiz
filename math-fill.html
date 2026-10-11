@@ -14,7 +14,6 @@
         .question { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
         .input-box { display: flex; gap: 10px; margin-bottom: 20px; }
         .input-box input { flex: 1; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 16px; outline: none; }
-        .input-box input:focus { border-color: var(--primary); }
         .submit-btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
         .explanation { background: #f0fdf4; border-left: 4px solid var(--success); padding: 12px; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; }
         .next-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; display: none; }
@@ -42,8 +41,9 @@
     </div>
     <script>
         const questions = [
-            { hint: "💡 Tool Hint: 6 out of 10 = 6/10. Multiply top and bottom by 10 to get percentage.", q: "Complete: 6 out of 10 is equivalent to ____ %.", answers: ["60%", "60"], exp: "6 out of 10 = 60/100 = 60%." },
-            { hint: "💡 Tool Hint: Multiply whole number by denominator and add numerator (3 × 5 + 2).", q: "Convert mixed number 3 2/5 into improper fraction (e.g. 17/5).", answers: ["17/5"], exp: "(3 × 5) + 2 = 17, so 17/5." }
+            { hint: "💡 Hint: 6 out of 10 = 6/10 = 60/100.", q: "Complete: 6 out of 10 is equivalent to ____ %.", answers: ["60%", "60"], exp: "6 out of 10 = 60%." },
+            { hint: "💡 Hint: 5 out of 20 = 5/20 = 25/100.", q: "Complete: 5 out of 20 is equivalent to ____ %.", answers: ["25%", "25"], exp: "5 out of 20 = 25/100 = 25%." },
+            { hint: "💡 Hint: Multiply whole number 3 by denominator 5 and add numerator 2.", q: "Convert mixed number 3 2/5 into an improper fraction (e.g., 17/5).", answers: ["17/5"], exp: "(3 × 5) + 2 = 17, so 17/5." }
         ];
         let idx = 0, score = 0;
         function load() {
@@ -53,7 +53,7 @@
             let q = questions[idx];
             if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
             else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = q.q;
+            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
         }
         function checkAns() {
             let val = document.getElementById("user-ans").value.trim().toLowerCase();
