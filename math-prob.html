@@ -14,7 +14,6 @@
         .question { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
         .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
         .opt-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: left; font-size: 15px; cursor: pointer; transition: 0.2s; }
-        .opt-btn:hover:not(:disabled) { background: #eff6ff; border-color: var(--primary); }
         .opt-btn.correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; }
         .opt-btn.incorrect { background: #fee2e2 !important; border-color: var(--error) !important; color: #991b1b; }
         .explanation { background: #f0fdf4; border-left: 4px solid var(--success); padding: 12px; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; color: #166534; }
@@ -40,8 +39,10 @@
     </div>
     <script>
         const questions = [
-            { hint: "📐 Geometry/Tool Hint: Use protractor or count spinner sections. Spinner has 8 sections.", q: "A spinner has 8 sections: three '1's, two '2's, one '3', two '4's. Which number is the spinner MOST likely to land on?", options: ["Number 1", "Number 2", "Number 3", "Number 4"], ans: 0, exp: "Number 1 appears 3 times (the most), so it has the highest probability." },
-            { hint: "💡 Tool Hint: Perimeter of regular pentagon = 5 × side length.", q: "What is the perimeter of a regular pentagon with side lengths of 6 cm?", options: ["25 cm", "30 cm", "36 cm", "40 cm"], ans: 1, exp: "A pentagon has 5 sides: 5 × 6 cm = 30 cm." }
+            { hint: "📐 Geometry/Tool Hint: Spinner has 8 sections. Number 1 appears 3 times.", q: "A spinner has 8 sections: three '1's, two '2's, one '3', and two '4's. Which number is the spinner MOST likely to land on?", options: ["Number 1", "Number 2", "Number 3", "Number 4"], ans: 0, exp: "Number 1 appears 3 times (the most), so it has the highest probability (3/8)." },
+            { hint: "📐 Geometry/Tool Hint: Regular pentagon has 5 equal sides.", q: "What is the perimeter of a regular pentagon with side lengths of 6 cm?", options: ["25 cm", "30 cm", "36 cm", "40 cm"], ans: 1, exp: "A pentagon has 5 sides: 5 × 6 cm = 30 cm." },
+            { hint: "💡 Word Problem Hint: Tree A produces 30kg. Tree B produces 10% more than Tree A (10% of 30 = 3).", q: "Tree A produces 30kg of oranges. Tree B produces 10% more than Tree A. How many kilograms of oranges does Tree B produce?", options: ["30 kg", "33 kg", "35 kg", "40 kg"], ans: 1, exp: "10% of 30 = 3 kg. So Tree B produces 30 + 3 = 33 kg." },
+            { hint: "💡 Reasoning Hint: Ben works out 4/15 + 3/5 = 13/15. Check common denominator.", q: "Ben says 4/15 + 3/5 = 13/15. Bashir says 13/20. Who is correct and why?", options: ["Ben is correct because 3/5 = 9/15, and 4/15 + 9/15 = 13/15", "Bashir is correct because 4+3=7 and 15+5=20", "Neither is correct"], ans: 0, exp: "Ben is correct! To add fractions, convert 3/5 to 9/15." }
         ];
         let idx = 0, score = 0;
         function load() {
@@ -50,7 +51,7 @@
             let q = questions[idx];
             if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
             else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = q.q;
+            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
             let optHTML = "";
             q.options.forEach((o, i) => { optHTML += `<button class="opt-btn" onclick="check(${i}, this)">${o}</button>`; });
             document.getElementById("options").innerHTML = optHTML;
