@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မြန်မာစာ အခန်း (၁) မှ (၁၉) လေ့ကျင့်ခန်းများ</title>
+    <style>
+        body {
+            font-family: 'Pyidaungsu', 'Myanmar Text', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fdfefe;
+            border-left: 6px solid #e74c3c;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #c0392b;
+            font-size: 1.3em;
+            margin-top: 0;
+            border-bottom: 2px solid #fadbd8;
+            padding-bottom: 8px;
+        }
+        .question {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        .options li {
+            margin: 8px 0;
+            padding: 12px 15px;
+            background: #f8f9f9;
+            border: 1px solid #e5e7e9;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .options li:hover {
+            background: #ebdef0;
+            border-color: #d7bde2;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #c0392b;
+        }
+        .answer-key {
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #eafaf1;
+            border: 1px solid #2ecc71;
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: #27ae60;
+            display: none;
+        }
+        .reading-box {
+            background: #f4ecf7;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #8e44ad;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #512e5f;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📚 မြန်မာစာ လေ့ကျင့်ခန်းများ (အခန်း ၁ မှ ၁၉)</h1>
+    <p class="subtitle">သားသားအတွက် အခန်းစုံလင်စွာ လေ့လာနိုင်ရန် မေးခွန်းပုံစံ (၇) မျိုးဖြင့် စနစ်တကျ ပြင်ဆင်ထားပါသည်</p>
+
+    <!-- ၁။ သတ်ပုံမှန်ရွေး -->
+    <div class="section">
+        <h2>၁။ သတ်ပုံမှန်ရွေးချယ်ရန်</h2>
+        <div class="question">၁။ အောက်ပါတို့အနက် သတ်ပုံမှန်ကန်သော စကားလုံးကို ရွေးပါ။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) ကျေးဇူးတင်ပါတယ်</li>
+            <li>(ခ) ကျေဇူးတင်ပါတယ်</li>
+            <li>(ဂ) ကျေးဇုတင်ပါတယ်</li>
+            <li>(ဃ) ကျေးဇူးတင်ပါသည် (သတ်ပုံအမှန်ဆုံး)</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ဃ) ကျေးဇူးတင်ပါသည် (သို့မဟုတ် က ပါဝင်သော ရွေးချယ်မှုများ)</div>
+    </div>
+
+    <!-- ၂။ ခက်ဆစ် -->
+    <div class="section">
+        <h2>၂။ ခက်ဆစ် ဖြေဆိုရန်</h2>
+        <div class="question">၁။ "တေဇော" ဟူသော စကားလုံး၏ အဓိပ္ပာယ်မှာ အဘယ်နည်း။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: တန်ခိုး၊ အာဏာ၊ အရှိန်အဝါ ဟု အဓိပ္ပာယ်ရပါသည်။</div>
+    </div>
+
+    <!-- ၃(က) ဝါကျ -->
+    <div class="section">
+        <h2>၃(က) ဝါကျ တည်ဆောက်ရန်</h2>
+        <div class="question">၁။ "ဇွဲလုံ့လ" ဟူသော စကားလုံးကို အသုံးပြု၍ အဓိပ္ပာယ်ပြည့်စုံသော ဝါကျတစ်ကြောင်း ရေးပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန် (ဥပမာ): "အောင်မြင်မှုရရှိရန် ဇွဲလုံ့လဖြင့် ကြိုးစားရမည်။"</div>
+    </div>
+
+    <!-- ၃(ခ) ကွက်လပ် -->
+    <div class="section">
+        <h2>၃(ခ) ကွက်လပ်ဖြည့်ရန်</h2>
+        <div class="question">၁။ "လူဖြစ်ရှုံးကား၊ ဆိတ်သုန်း........၊" ကွက်လပ်တွင် ပါဝင်သင့်သော စကားလုံးကို ဖြည့်ပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: "အနှစ်" (လူဖြစ်ရှုံးကား၊ ဆိတ်သုန်းအနှစ်)</div>
+    </div>
+
+    <!-- ၄။ မျဉ်းသားထားသည့်စကားလုံးနှင့်အဓိပ္ပာယ်တူ -->
+    <div class="section">
+        <h2>၄။ အဓိပ္ပာယ်တူ စကားလုံးရွေးရန်</h2>
+        <div class="question">၁။ "မိုးကောင်းကင်တွင် <u>တာရာ</u>များ တောက်ပနေသည်။" မျဉ်းသားထားသော စကားလုံးနှင့် အဓိပ္ပာယ်တူကို ရွေးပါ။</div>
+        <ul class="options" onclick="toggleAnswer(this)">
+            <li>(က) လမင်း</li>
+            <li>(ခ) ကြယ်</li>
+            <li>(ဂ) တိမ်တိုက်</li>
+            <li>(ဃ) နေမင်း</li>
+        </ul>
+        <div class="answer-key">အဖြေမှန်: (ခ) ကြယ်</div>
+    </div>
+
+    <!-- ၅(က) ကဗျာကွက်လပ် -->
+    <div class="section">
+        <h2>၅(က) ကဗျာကွက်လပ်ဖြည့်ရန်</h2>
+        <div class="question">၁။ "ရွှေဘိုမြို့က၊ မိုးထက်........၊" ကွက်လပ်ကို ဖြည့်စွက်ပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: "ဆင်း" (ရွှေဘိုမြို့က၊ မိုးထက်ဆင်း)</div>
+    </div>
+
+    <!-- ၅(ခ) ကဗျာဆိုလိုရင်း -->
+    <div class="section">
+        <h2>၅(ခ) ကဗျာဆိုလိုရင်း ဖြေဆိုရန်</h2>
+        <div class="question">၁။ "မိဘကျေးဇူး၊ ဆပ်၍မကူ၊ လူဖြစ်ရှုံးကား၊ ဆိတ်သုန်းအနှစ်" ကဗျာ၏ ဆိုလိုရင်းအနှစ်ချုပ်ကို ဖော်ပြပါ။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: မိဘကျေးဇူးကို မသိတတ်၊ မဆပ်တတ်ဘဲ အလဟဿ အသက်ရှင်နေထိုင်ခြင်းသည် လူ့ဘဝတန်ဖိုး ဆိတ်သုန်းပျောက်ကွယ်ကာ အလွန်နစ်နာဆုံးရှုံးရကြောင်း ဆိုလိုပါသည်။</div>
+    </div>
+
+    <!-- ၆။ မေးခွန်းတို -->
+    <div class="section">
+        <h2>၆။ မေးခွန်းတို ဖြေဆိုရန်</h2>
+        <div class="question">၁။ မြန်မာ့ရိုးရာယဉ်ကျေးမှု အမွေအနှစ်များကို ထိန်းသိမ်းရန် အဘယ်ကြောင့် လိုအပ်သနည်း။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: ကိုယ့်အမျိုးဂုဏ်၊ ဇာတိဂုဏ် မြင့်မားစေရန်နှင့် ယဉ်ကျေးမှု အမွေအနှစ်များ မပျောက်ပျက်အောင် နောင်လာနောက်သားများထံ လက်ဆင့်ကမ်းရန် လိုအပ်ပါသည်။</div>
+    </div>
+
+    <!-- ၇။ စာပိုဒ်ဖတ်၍မေးခွန်းဖြေ -->
+    <div class="section">
+        <h2>၇။ စာပိုဒ်ဖတ်၍ မေးခွန်းဖြေဆိုရန်</h2>
+        <div class="reading-box">
+            "ကျန်းမာရေးသည် လူ့ဘဝအတွက် အဖိုးတန်ဆုံး ရတနာတစ်ပါး ဖြစ်သည်။ ကျန်းမာမှသာလျှင် မိမိတို့၏ လုပ်ငန်းဆောင်တာများကို အောင်မြင်စွာ လုပ်ကိုင်ဆောင်ရွက်နိုင်မည်ဖြစ်ပြီး ပျော်ရွှင်သောဘဝကို တည်ဆောက်နိုင်မည် ဖြစ်ပေသည်။ ထို့ကြောင့် ကိုယ်လက်လှုပ်ရှားမှု လုပ်ခြင်း၊ အာဟာရပြည့်ဝသော အစားအစာများကို စားသုံးခြင်းဖြင့် ကျန်းမာရေးကို စောင့်ရှောက်ကြရမည်။"
+        </div>
+        <div class="question">၁။ လူ့ဘဝအတွက် အဖိုးတန်ဆုံး ရတနာက အဘယ်နည်း။</div>
+        <input type="text" placeholder="သင်၏အဖြေကို ဤနေရာတွင် ရေးပါ...">
+        <button class="btn" onclick="showTextAnswer(this)">အဖြေကြည့်ရန်</button>
+        <div class="answer-key">အဖြေမှန်: ကျန်းမာရေး ဖြစ်ပါသည်။</div>
+    </div>
+
+</div>
+
+<script>
+    function toggleAnswer(element) {
+        let answerKey = element.nextElementSibling;
+        if (answerKey && answerKey.classList.contains('answer-key')) {
+            answerKey.style.display = answerKey.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+
+    function showTextAnswer(button) {
+        let answerKey = button.nextElementSibling;
+        if (answerKey && answerKey.classList.contains('answer-key')) {
+            answerKey.style.display = answerKey.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
