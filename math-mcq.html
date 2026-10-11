@@ -40,9 +40,16 @@
     </div>
     <script>
         const questions = [
-            { hint: "💡 Tool Hint: Count how many cards match out of 10 total cards.", q: "Cards 1 to 10 are in a hat. Bella picks a number. What is the likelihood of picking the number 7?", options: ["Impossible", "Unlikely (1/10)", "Even Chance", "Certain"], ans: 1, exp: "Unlikely! Only 1 card out of 10 is the number 7." },
-            { hint: "💡 Tool Hint: Divide both top and bottom numbers by 4.", q: "Write 12/16 in its simplest form.", options: ["1/2", "3/4", "6/8", "2/3"], ans: 1, exp: "12 ÷ 4 = 3, 16 ÷ 4 = 4. So 12/16 simplifies to 3/4." },
-            { hint: "💡 Tool Hint: Mode is the most frequent value.", q: "What is the mode of these T-shirt prices: $5, $11, $8, $5, $5, $8, $7?", options: ["$5", "$8", "$7", "$11"], ans: 0, exp: "$5 appears three times, which is the most frequent." }
+            { hint: "💡 Probability Tool Hint: Cards 1 to 10. Number 7 appears only once.", q: "Cards numbered 1 to 10 are placed in a hat. Bella takes a card. What is the likelihood that she picks the number 7?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 1, exp: "Unlikely! Only 1 card out of 10 is the number 7." },
+            { hint: "💡 Probability Tool Hint: Even numbers from 1 to 10 are 2, 4, 6, 8, 10 (5 numbers out of 10).", q: "Bella picks a card from 1 to 10. What is the likelihood that she picks an even number?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 2, exp: "Even Chance! Exactly 5 out of 10 numbers are even (50%)." },
+            { hint: "💡 Fractions Tool Hint: Divide both numerator and denominator by 4.", q: "Write 12/16 in its simplest form.", options: ["1/2", "3/4", "6/8", "2/3"], ans: 1, exp: "12 ÷ 4 = 3, and 16 ÷ 4 = 4. So it is 3/4." },
+            { hint: "💡 Percentages Tool Hint: 20% = 20/100. Simplify it.", q: "Which fractions are equal to 20%?", options: ["1/20", "1/5", "3/15", "Both 1/5 and 3/15"], ans: 3, exp: "20% = 1/5 and 3/15 also simplifies to 1/5." },
+            { hint: "💡 Data Handling Tool Hint: Mode is the most frequently occurring value.", q: "What is the mode of these T-shirt prices: $5, $11, $8, $5, $5, $8, $7?", options: ["$5", "$8", "$7", "$11"], ans: 0, exp: "$5 appears three times, which is more than any other price." },
+            { hint: "💡 Data Handling Tool Hint: Median is the middle number when arranged in order.", q: "What is the median of these T-shirt prices: $5, $11, $8, $5, $5, $8, $7?", options: ["$5", "$7", "$8", "$11"], ans: 1, exp: "Sorted order: $5, $5, $5, $7, $8, $8, $11. The middle number (4th) is $7." },
+            { hint: "💡 Probability Tool Hint: Cards 1 to 10. Numbers less than 3 are 1 and 2 (2 cards).", q: "Bella picks a card from 1 to 10. What is the likelihood of picking a number less than 3?", options: ["Impossible", "Unlikely", "Even Chance", "Certain"], ans: 1, exp: "Unlikely! Only 2 numbers (1, 2) are less than 3." },
+            { hint: "💡 Place Value Tool Hint: 47,823 - digit 7 is in thousands place.", q: "What is the value of 7 in the number 47,823?", options: ["70", "700", "7,000", "70,000"], ans: 2, exp: "The digit 7 is in the thousands column, so its value is 7,000." },
+            { hint: "💡 Percentages Tool Hint: 75% means 75 out of 100.", q: "1075% of a number is 36. What is the fraction equivalent of 75%?", options: ["1/4", "1/2", "3/4", "4/5"], ans: 2, exp: "75% = 75/100 = 3/4 in simplest form." },
+            { hint: "💡 Fractions Tool Hint: Add numerators when denominators are the same.", q: "Calculate: 2/7 + 3/7 = ?", options: ["5/14", "5/7", "6/7", "1/7"], ans: 1, exp: "Keep the denominator 7 and add top numbers: 2 + 3 = 5 (5/7)." }
         ];
         let idx = 0, score = 0;
         function load() {
@@ -51,7 +58,7 @@
             let q = questions[idx];
             if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
             else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = q.q;
+            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
             let optHTML = "";
             q.options.forEach((o, i) => { optHTML += `<button class="opt-btn" onclick="check(${i}, this)">${o}</button>`; });
             document.getElementById("options").innerHTML = optHTML;
