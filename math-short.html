@@ -14,7 +14,6 @@
         .question { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
         .input-box { display: flex; gap: 10px; margin-bottom: 20px; }
         .input-box input { flex: 1; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 16px; outline: none; }
-        .input-box input:focus { border-color: var(--primary); }
         .submit-btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
         .explanation { background: #f0fdf4; border-left: 4px solid var(--success); padding: 12px; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; }
         .next-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; display: none; }
@@ -42,8 +41,10 @@
     </div>
     <script>
         const questions = [
-            { hint: "💡 Tool Hint: Find common denominator (12) for 5/12 + 1/6.", q: "Calculate: 5/12 + 1/6 = ? (Type fraction like 7/12)", answers: ["7/12"], exp: "1/6 = 2/12. Then 5/12 + 2/12 = 7/12." },
-            { hint: "💡 Tool Hint: Digit 7 is in the thousands place.", q: "What is the value of 7 in 47,823?", answers: ["7000", "7,000"], exp: "7 is in the thousands place, so its value is 7,000." }
+            { hint: "💡 Fraction Addition Hint: Make denominators same (12). 5/12 + 2/12 = ?", q: "Calculate: 5/12 + 1/6 = ? (Type fraction like 7/12)", answers: ["7/12"], exp: "1/6 = 2/12, so 5/12 + 2/12 = 7/12." },
+            { hint: "💡 Fraction Subtraction Hint: Make denominators same (12). 7/12 - 1/6 = ?", q: "Calculate: 7/12 - 1/6 = ? (Type fraction)", answers: ["5/12"], exp: "1/6 = 2/12, so 7/12 - 2/12 = 5/12." },
+            { hint: "💡 Place Value Hint: Digit 7 is in the thousands position.", q: "What is the value of 7 in the number 47,823?", answers: ["7000", "7,000"], exp: "7 is in the thousands place, so its value is 7,000." },
+            { hint: "💡 Percentage Hint: 75% of a number is 36. Find whole number (36 ÷ 3 × 4).", q: "75% of a number is 36. What is the number?", answers: ["48"], exp: "1% = 36 ÷ 75 = 0.48. 100% = 48." }
         ];
         let idx = 0, score = 0;
         function load() {
@@ -53,7 +54,7 @@
             let q = questions[idx];
             if(q.hint) { document.getElementById("hint").innerText = q.hint; document.getElementById("hint").style.display = "block"; }
             else { document.getElementById("hint").style.display = "none"; }
-            document.getElementById("question").innerText = q.q;
+            document.getElementById("question").innerText = (idx + 1) + ". " + q.q;
         }
         function checkAns() {
             let val = document.getElementById("user-ans").value.trim().toLowerCase();
