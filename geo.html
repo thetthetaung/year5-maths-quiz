@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 5 Geography Practice</title>
+
+<style>
+:root {
+  --primary: #246b56;
+  --primary-light: #e6f4ed;
+  --background: #f4f7f5;
+  --text: #25332d;
+  --white: #ffffff;
+  --correct: #18794e;
+  --wrong: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 5vw, 36px);
+}
+
+header p {
+  margin: 0;
+}
+
+.container {
+  width: min(100% - 28px, 900px);
+  margin: 24px auto;
+}
+
+.panel,
+.question-card,
+.result-card {
+  background: var(--white);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(0,0,0,.06);
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  margin-top: 0;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+select,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5ce;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 5px 5px 0;
+  background: var(--primary);
+  color: white;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+button.secondary {
+  background: #e7ece8;
+  color: var(--text);
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.question-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #5c6d63;
+  font-size: 14px;
+}
+
+.question-text {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 18px 0;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  margin: 9px 0;
+  border: 1px solid #dce5de;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.option:hover {
+  background: var(--primary-light);
+}
+
+.option input {
+  margin-top: 5px;
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  display: none;
+}
+
+.feedback.correct {
+  display: block;
+  color: var(--correct);
+  background: #e7f7ed;
+}
+
+.feedback.wrong {
+  display: block;
+  color: var(--wrong);
+  background: #fff0ee;
+}
+
+.progress-wrap {
+  background: #dfe7e1;
+  height: 9px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #3b9a71;
+  width: 0;
+  transition: width .2s;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+#result {
+  display: none;
+}
+
+.score {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.small {
+  color: #65746b;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 12px;
+  color: #65746b;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+@media (max-width: 500px) {
+  .panel, .question-card, .result-card {
+    padding: 16px;
+  }
+
+  .match-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌍 Year 5 Geography</h1>
+  <p>Oxford Geography Book 5 · Practice and Learn</p>
+</header>
+
+<main class="container">
+
+  <section class="panel">
+    <h2>Choose Your Practice</h2>
+
+    <div class="controls">
+      <div>
+        <label for="topic">Topic</label>
+        <select id="topic">
+          <option value="all">All Topics</option>
+          <option value="deserts">Deserts</option>
+          <option value="rainforest">Tropical Rainforests</option>
+          <option value="water">Water and Drought</option>
+          <option value="transport">Transport and Roads</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="type">Question Type</label>
+        <select id="type">
+          <option value="all">All Question Types</option>
+          <option value="mcq">Multiple Choice</option>
+          <option value="tf">True or False</option>
+          <option value="fill">Fill in the Blanks</option>
+          <option value="short">Short Questions</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="startPractice()">Start Practice</button>
+      <button class="secondary" onclick="showAllAnswers()">Show Answer Key</button>
+    </div>
+
+    <p class="small">
+      Read each question carefully. Submit your answer to receive feedback.
+    </p>
+  </section>
+
+  <section id="practice" class="question-card" style="display:none">
+    <div class="question-top">
+      <span id="question-category"></span>
+      <span id="question-count"></span>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div id="question-text" class="question-text"></div>
+    <div id="answer-area"></div>
+    <div id="feedback" class="feedback"></div>
+
+    <div class="actions">
+      <button id="check-btn" onclick="checkAnswer()">Check Answer</button>
+      <button id="next-btn" onclick="nextQuestion()" style="display:none">Next Question →</button>
+      <button class="secondary" onclick="endPractice()">Finish</button>
+    </div>
+  </section>
+
+  <section id="result" class="result-card">
+    <h2>🎉 Practice Complete!</h2>
+    <p>Your score:</p>
+    <div class="score" id="final-score"></div>
+    <p id="result-message"></p>
+    <button onclick="startPractice()">Try Again</button>
+  </section>
+
+  <section id="answer-key" class="panel" style="display:none">
+    <h2>Answer Key</h2>
+    <div id="answer-key-content"></div>
+    <button class="secondary" onclick="document.getElementById('answer-key').style.display='none'">
+      Close Answer Key
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  Year 5 Geography Practice · Learn at your own pace 🌱
+</footer>
+
+<script>
+const questions = [
+
+  // DESERTS
+
+  {
+    topic: "deserts",
+    type: "mcq",
+    question: "What is a desert?",
+    options: [
+      "A place with very little rainfall",
+      "A place that rains every day",
+      "A place covered entirely by forests",
+      "A place that is always cold"
+    ],
+    answer: 0,
+    explanation: "Deserts receive very little rainfall."
+  },
+  {
+    topic: "deserts",
+    type: "mcq",
+    question: "Which of these is a hot desert?",
+    options: ["Sahara Desert", "Amazon Rainforest", "Arctic region", "Himalayas"],
+    answer: 0,
+    explanation: "The Sahara is a major hot desert in Africa."
+  },
+  {
+    topic: "deserts",
+    type: "mcq",
+    question: "Why do desert plants often have long roots?",
+    options: [
+      "To reach water deep underground",
+      "To make the soil colder",
+      "To stop the wind",
+      "To produce more sand"
+    ],
+    answer: 0,
+    explanation: "Long roots can help plants reach water below the surface."
+  },
+  {
+    topic: "deserts",
+    type: "mcq",
+    question: "Which animal is well adapted to life in many deserts?",
+    options: ["Camel", "Penguin", "Polar bear", "Dolphin"],
+    answer: 0,
+    explanation: "Camels have adaptations that help them survive in dry environments."
+  },
+  {
+    topic: "deserts",
+    type: "tf",
+    question: "Deserts receive very little rainfall.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Low rainfall is a key feature of deserts."
+  },
+  {
+    topic: "deserts",
+    type: "tf",
+    question: "All deserts are hot throughout the year.",
+    options: ["True", "False"],
+    answer: 1,
+    explanation: "False. Some deserts are cold deserts."
+  },
+  {
+    topic: "deserts",
+    type: "tf",
+    question: "Some desert plants have adaptations that help them conserve water.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "Many desert plants have features that reduce water loss."
+  },
+  {
+    topic: "deserts",
+    type: "fill",
+    question: "A large area of land with very little rainfall is called a ______.",
+    answer: ["desert"],
+    explanation: "A desert is an area that receives very little precipitation."
+  },
+  {
+    topic: "deserts",
+    type: "fill",
+    question: "People who traditionally live a nomadic life in parts of the Sahara are called ______.",
+    answer: ["bedouin", "bedouins"],
+    explanation: "Bedouin communities have traditionally lived in parts of the desert."
+  },
+  {
+    topic: "deserts",
+    type: "fill",
+    question: "A long period with little or no rain is called a ______.",
+    answer: ["drought"],
+    explanation: "Drought is a prolonged period of unusually low rainfall."
+  },
+  {
+    topic: "deserts",
+    type: "short",
+    question: "Give two ways people can adapt to living in a desert.",
+    answer: "Possible answers: conserve water, live near water sources, wear protective clothing, travel at cooler times, or use irrigation where possible.",
+    keywords: ["water", "source", "clothing", "cool", "irrigation", "conserve"],
+    explanation: "Accept any two reasonable adaptations."
+  },
+  {
+    topic: "deserts",
+    type: "short",
+    question: "Why is water especially important in a desert?",
+    answer: "Water is scarce and is needed for drinking, growing food and caring for animals.",
+    keywords: ["scarce", "drink", "food", "plant", "animal", "grow"],
+    explanation: "Water is essential for people, plants and animals."
+  },
+
+  // TROPICAL RAINFORESTS
+
+  {
+    topic: "rainforest",
+    type: "mcq",
+    question: "What is the climate of a tropical rainforest usually like?",
+    options: [
+      "Hot and wet",
+      "Cold and dry",
+      "Cold and snowy",
+      "Hot with no rain at all"
+    ],
+    answer: 0,
+    explanation: "Tropical rainforests are generally warm and receive heavy rainfall."
+  },
+  {
+    topic: "rainforest",
+    type: "mcq",
+    question: "Which layer is the high layer formed by the crowns of many tall trees?",
+    options: ["Canopy", "Forest floor", "Underground layer", "Desert layer"],
+    answer: 0,
+    explanation: "The canopy is formed by the crowns of trees."
+  },
+  {
+    topic: "rainforest",
+    type: "mcq",
+    question: "What is deforestation?",
+    options: [
+      "The clearing or removal of forests",
+      "Planting new trees",
+      "Protecting wildlife",
+      "Collecting rainwater"
+    ],
+    answer: 0,
+    explanation: "Deforestation means removing or clearing forests."
+  },
+  {
+    topic: "rainforest",
+    type: "tf",
+    question: "Tropical rainforests usually receive a lot of rainfall.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Heavy rainfall is a characteristic of tropical rainforests."
+  },
+  {
+    topic: "rainforest",
+    type: "tf",
+    question: "Deforestation can destroy the habitats of animals.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Animals may lose the places where they live and find food."
+  },
+  {
+    topic: "rainforest",
+    type: "fill",
+    question: "The cutting down and clearing of forests is called ______.",
+    answer: ["deforestation"],
+    explanation: "Deforestation is the removal of forests."
+  },
+  {
+    topic: "rainforest",
+    type: "fill",
+    question: "The upper layer formed by the crowns of rainforest trees is called the ______.",
+    answer: ["canopy"],
+    explanation: "The canopy forms a leafy layer above much of the rainforest."
+  },
+  {
+    topic: "rainforest",
+    type: "short",
+    question: "Give two reasons why rainforests are important.",
+    answer: "They provide habitats for wildlife, store carbon, influence climate and provide resources for people.",
+    keywords: ["wildlife", "animal", "carbon", "climate", "resource", "plant", "species"],
+    explanation: "Any two scientifically reasonable reasons can be accepted."
+  },
+  {
+    topic: "rainforest",
+    type: "short",
+    question: "Give two reasons why people clear tropical rainforests.",
+    answer: "To make farmland or cattle ranches, obtain timber, or create space for roads and settlements.",
+    keywords: ["farm", "cattle", "timber", "wood", "road", "settlement", "land"],
+    explanation: "Forests may be cleared for farming, timber and development."
+  },
+
+  // WATER AND DROUGHT
+
+  {
+    topic: "water",
+    type: "mcq",
+    question: "Which of these is a source of fresh water?",
+    options: ["River", "Ocean", "Sea", "Saltwater lagoon"],
+    answer: 0,
+    explanation: "Rivers are an important source of fresh water, although water quality varies."
+  },
+  {
+    topic: "water",
+    type: "mcq",
+    question: "What can happen when a region experiences a long drought?",
+    options: [
+      "Water shortages and crop failure",
+      "Every river becomes deeper",
+      "Rain falls constantly",
+      "All plants grow faster"
+    ],
+    answer: 0,
+    explanation: "Drought can reduce water supplies and damage crops."
+  },
+  {
+    topic: "water",
+    type: "mcq",
+    question: "Which action helps people use water responsibly?",
+    options: [
+      "Repairing leaking taps",
+      "Leaving taps running",
+      "Washing the pavement with a hose every day",
+      "Pouring clean water away unnecessarily"
+    ],
+    answer: 0,
+    explanation: "Repairing leaks helps prevent water waste."
+  },
+  {
+    topic: "water",
+    type: "tf",
+    question: "Clean water is important for drinking and good health.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Safe water helps protect human health."
+  },
+  {
+    topic: "water",
+    type: "tf",
+    question: "Drought means that an area receives too much rain for a long time.",
+    options: ["True", "False"],
+    answer: 1,
+    explanation: "False. Drought involves a prolonged lack of rainfall or water."
+  },
+  {
+    topic: "water",
+    type: "fill",
+    question: "A long period of unusually low rainfall is called a ______.",
+    answer: ["drought"],
+    explanation: "Drought can cause water shortages."
+  },
+  {
+    topic: "water",
+    type: "fill",
+    question: "A serious lack of food affecting many people is called ______.",
+    answer: ["famine"],
+    explanation: "Famine is an extreme shortage of food affecting a population."
+  },
+  {
+    topic: "water",
+    type: "fill",
+    question: "Water that is safe to drink is called ______ drinking water.",
+    answer: ["safe", "clean", "potable"],
+    explanation: "Potable water is water that is safe to drink."
+  },
+  {
+    topic: "water",
+    type: "short",
+    question: "Give two ways to save water at home.",
+    answer: "Turn off taps when not needed, repair leaks, take shorter showers or reuse suitable water for plants.",
+    keywords: ["tap", "leak", "shower", "reuse", "turn off", "water"],
+    explanation: "Any two sensible water-saving actions can be accepted."
+  },
+  {
+    topic: "water",
+    type: "short",
+    question: "Explain one way drought can affect farmers.",
+    answer: "Drought can prevent crops from growing well because there is not enough water, reducing harvests.",
+    keywords: ["water", "crop", "plant", "harvest", "grow", "farm"],
+    explanation: "Drought can damage crops and reduce food production."
+  },
+
+  // TRANSPORT AND ROADS
+
+  {
+    topic: "transport",
+    type: "mcq",
+    question: "Which form of transport usually travels by railway tracks?",
+    options: ["Train", "Ship", "Bicycle", "Airplane"],
+    answer: 0,
+    explanation: "Trains usually travel on railway tracks."
+  },
+  {
+    topic: "transport",
+    type: "mcq",
+    question: "Which form of transport is mainly used to travel through the air?",
+    options: ["Airplane", "Train", "Bicycle", "Bus"],
+    answer: 0,
+    explanation: "Airplanes are used for air transport."
+  },
+  {
+    topic: "transport",
+    type: "mcq",
+    question: "What is a bypass road designed to do?",
+    options: [
+      "Allow traffic to go around a town or busy area",
+      "Stop all vehicles permanently",
+      "Carry trains underground",
+      "Provide a path only for bicycles"
+    ],
+    answer: 0,
+    explanation: "A bypass allows through-traffic to avoid a busy area."
+  },
+  {
+    topic: "transport",
+    type: "mcq",
+    question: "What is a ring road?",
+    options: [
+      "A road that goes around a town or city",
+      "A road that only goes through a tunnel",
+      "A road for trains only",
+      "A road that always ends at a harbour"
+    ],
+    answer: 0,
+    explanation: "A ring road circles a town or city."
+  },
+  {
+    topic: "transport",
+    type: "mcq",
+    question: "Which is a possible problem caused by heavy road traffic?",
+    options: [
+      "Air pollution",
+      "Less noise everywhere",
+      "No road accidents",
+      "No fuel use"
+    ],
+    answer: 0,
+    explanation: "Vehicle emissions can contribute to air pollution."
+  },
+  {
+    topic: "transport",
+    type: "tf",
+    question: "Ships are a form of water transport.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Ships travel on water."
+  },
+  {
+    topic: "transport",
+    type: "tf",
+    question: "A bicycle normally needs petrol to move.",
+    options: ["True", "False"],
+    answer: 1,
+    explanation: "False. A normal bicycle is powered by the rider."
+  },
+  {
+    topic: "transport",
+    type: "tf",
+    question: "Heavy traffic can cause delays.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Congestion can slow down journeys."
+  },
+  {
+    topic: "transport",
+    type: "tf",
+    question: "Carbon monoxide is a gas that can be harmful to people.",
+    options: ["True", "False"],
+    answer: 0,
+    explanation: "True. Carbon monoxide is poisonous."
+  },
+  {
+    topic: "transport",
+    type: "fill",
+    question: "A road built to take traffic around a town is called a ______ road.",
+    answer: ["bypass"],
+    explanation: "A bypass helps traffic avoid a busy town centre."
+  },
+  {
+    topic: "transport",
+    type: "fill",
+    question: "A road that circles around a town or city is called a ______ road.",
+    answer: ["ring"],
+    explanation: "A ring road goes around a town or city."
+  },
+  {
+    topic: "transport",
+    type: "fill",
+    question: "The dark material produced by incomplete burning of fuel is called ______.",
+    answer: ["soot"],
+    explanation: "Soot is a dark substance made of fine particles."
+  },
+  {
+    topic: "transport",
+    type: "fill",
+    question: "A harmful gas produced by incomplete combustion is carbon ______.",
+    answer: ["monoxide"],
+    explanation: "Carbon monoxide can be produced when fuels do not burn completely."
+  },
+  {
+    topic: "transport",
+    type: "short",
+    question: "Give two ways to reduce traffic problems in a city.",
+    answer: "Improve public transport, encourage walking and cycling, manage traffic, or provide suitable bypass and ring roads.",
+    keywords: ["public transport", "bus", "train", "walk", "cycle", "traffic", "bypass", "ring road"],
+    explanation: "Any two reasonable traffic-management measures can be accepted."
+  },
+  {
+    topic: "transport",
+    type: "short",
+    question: "Give one advantage and one disadvantage of travelling by car.",
+    answer: "Advantage: convenient and flexible. Disadvantage: can cause traffic congestion, pollution or parking problems.",
+    keywords: ["convenient", "flexible", "traffic", "pollution", "parking"],
+    explanation: "One valid advantage and one valid disadvantage are required."
+  },
+  {
+    topic: "transport",
+    type: "short",
+    question: "Why can public transport help reduce traffic congestion?",
+    answer: "A bus or train can carry many passengers, reducing the number of individual vehicles needed.",
+    keywords: ["passenger", "people", "vehicles", "cars", "bus", "train", "fewer"],
+    explanation: "Public transport can move many people using fewer vehicles."
+  }
+];
+
+let practiceQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let answered = false;
+let answerRecords = [];
+
+const topicNames = {
+  deserts: "Deserts",
+  rainforest: "Tropical Rainforests",
+  water: "Water and Drought",
+  transport: "Transport and Roads"
+};
+
+const typeNames = {
+  mcq: "Multiple Choice",
+  tf: "True or False",
+  fill: "Fill in the Blanks",
+  short: "Short Question"
+};
+
+function shuffle(array) {
+  const copy = [...array];
+
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy;
+}
+
+function startPractice() {
+  const selectedTopic = document.getElementById("topic").value;
+  const selectedType = document.getElementById("type").value;
+
+  practiceQuestions = questions.filter(q => {
+    const topicMatches = selectedTopic === "all" || q.topic === selectedTopic;
+    const typeMatches = selectedType === "all" || q.type === selectedType;
+    return topicMatches && typeMatches;
+  });
+
+  if (practiceQuestions.length === 0) {
+    alert("No questions found for this selection.");
+    return;
+  }
+
+  practiceQuestions = shuffle(practiceQuestions);
+  currentIndex = 0;
+  score = 0;
+  answered = false;
+  answerRecords = [];
+
+  document.getElementById("practice").style.display = "block";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("answer-key").style.display = "none";
+
+  renderQuestion();
+
+  document.getElementById("practice").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function renderQuestion() {
+  answered = false;
+
+  const q = practiceQuestions[currentIndex];
+
+  document.getElementById("question-category").textContent =
+    topicNames[q.topic] + " · " + typeNames[q.type];
+
+  document.getElementById("question-count").textContent =
+    `Question ${currentIndex + 1} of ${practiceQuestions.length}`;
+
+  document.getElementById("progress").style.width =
+    ((currentIndex / practiceQuestions.length) * 100) + "%";
+
+  document.getElementById("question-text").textContent = q.question;
+
+  const area = document.getElementById("answer-area");
+  area.innerHTML = "";
+
+  if (q.type === "mcq" || q.type === "tf") {
+    q.options.forEach((option, index) => {
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio
